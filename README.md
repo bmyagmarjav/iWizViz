@@ -26,6 +26,14 @@ $ sudo npm install
 $ sudo bower install
 ```
 
+## Build, Run, Test
+
+```sh
+$ gulp build
+$ gulp serve
+$ gulp test
+```
+
 ## Features
 
 * [AngularJS](https://angularjs.org/) - HTML enhanced for web apps!
