@@ -46,6 +46,9 @@ $ gulp test
 
 ## Collaborators - powered by Georgia Institute of Technology [CS 4460]
 
-| Name                | Email                   | Thread          |
-| ------------------- |:-----------------------:| ---------------:|
-| Battulga Myagmarjav | bmyagmarjav3@gatech.edu | I & I and Media |
+| Name                 | Email                   | Thread           |
+| -------------------  |:-----------------------:| :---------------:|
+| Battulga Myagmarjav  | bmyagmarjav3@gatech.edu | I & I and Media  |
+| Katie (Mary) Bentley | mbentley8@gatech.edu    | People and Media |
+| Alice Hjangjin       | alicehjlee@gatech.edu   | People and Media |
+| Fang Wang            | fwang92@gatech.edu      | People and Media |
