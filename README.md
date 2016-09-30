@@ -2,7 +2,7 @@
 
 Responsive admin dashboard powered by Angular
 
-## Color Palette 
+## Color Palette
 
 ![Alt text](./Colors.png?raw=true "color palette")
 #### \#172352 | \#D6DDED | \#F1F1F9 | \#B0C5E0 | \#7577A0 | \#F559A9  
@@ -13,6 +13,7 @@ Responsive admin dashboard powered by Angular
 
 ```sh
 $ sudo npm install -g yo
+$ sudo npm install -g bower
 $ sudo npm install -g generator-fountain-webapp
 $ sudo npm install -g gulp-cli
 ```
@@ -22,15 +23,15 @@ $ sudo npm install -g gulp-cli
 ```sh
 $ cd iWizViz
 $ sudo npm install
+$ sudo bower install
 ```
 
 ## Features
 
 * [AngularJS](https://angularjs.org/) - HTML enhanced for web apps!
 * [Gulp](http://gulpjs.com/) - The streaming build system
-* [Karma](http://karma-runner.github.io/) - Spectacular Test Runner for JavaScript 
+* [Karma](http://karma-runner.github.io/) - Spectacular Test Runner for JavaScript
 * [Protractor](https://github.com/angular/protractor) - End to end test framework for AngularJS applications built on top of WebDriverJS
 * [BrowserSync](http://browsersync.io/) - Time-saving synchronised browser testing
 * [Bootstrap](http://getbootstrap.com/) - Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
 * [Jasmine](http://jasmine.github.io/) - Behavior-Driven JavaScript
-
