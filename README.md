@@ -9,7 +9,7 @@ Responsive admin dashboard powered by Angular
 
 ## Prerequisites
 
-* [node.js](https://nodejs.org/) - Spectacular Test Runner for JavaScript
+* [node.js](https://nodejs.org/)
 
 ```sh
 $ sudo npm install -g yo
@@ -27,7 +27,8 @@ $ sudo npm install
 ## Features
 
 * [AngularJS](https://angularjs.org/) - HTML enhanced for web apps!
-* [Karma](http://karma-runner.github.io/) - The streaming build system
+* [Gulp](http://gulpjs.com/) - The streaming build system
+* [Karma](http://karma-runner.github.io/) - Spectacular Test Runner for JavaScript 
 * [Protractor](https://github.com/angular/protractor) - End to end test framework for AngularJS applications built on top of WebDriverJS
 * [BrowserSync](http://browsersync.io/) - Time-saving synchronised browser testing
 * [Bootstrap](http://getbootstrap.com/) - Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
