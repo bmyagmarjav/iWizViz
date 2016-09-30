@@ -43,3 +43,9 @@ $ gulp test
 * [BrowserSync](http://browsersync.io/) - Time-saving synchronised browser testing
 * [Bootstrap](http://getbootstrap.com/) - Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web
 * [Jasmine](http://jasmine.github.io/) - Behavior-Driven JavaScript
+
+## Collaborators - powered by Georgia Institute of Technology [CS 4460]
+
+| Name                | Email                   | Thread          |
+| ------------------- |:-----------------------:| ---------------:|
+| Battulga Myagmarjav | bmyagmarjav3@gatech.edu | I & I and Media |
