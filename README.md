@@ -1,6 +1,6 @@
 
 <p align="center">
-    <h1>iWizViz</h1><br>
+    <b>iWizViz</b><br>
     <img src="src/img/logo.png?raw=true" alt="logo"/>
 </p>
 
