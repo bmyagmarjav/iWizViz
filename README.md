@@ -1,7 +1,6 @@
-<h1 style="text-align: center">iWizViz</h1>
-
 <p align="center">
-  <img src="src/img/logo.png?raw=true" alt="logo"/>
+    <h1>iWizViz</h1>
+    <img src="src/img/logo.png?raw=true" alt="logo"/>
 </p>
 
 Responsive admin dashboard powered by Angular
