@@ -1,8 +1,9 @@
 # iWizViz
 
 <p align="center">
-![Alt text](src/img/logo.png?raw=true "color palette")
+  <img src="src/img/logo.png?raw=true" alt="logo"/>
 </p>
+
 Responsive admin dashboard powered by Angular
 
 ## Color Palette
