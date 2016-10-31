@@ -1,6 +1,6 @@
 
 <p align="center">
-    <b font-size: 20px># iWizViz</b><br>
+    # iWizViz <br>
     <img src="src/img/logo.png?raw=true" alt="logo"/><br>
     Responsive admin dashboard powered by Angular
 </p>
