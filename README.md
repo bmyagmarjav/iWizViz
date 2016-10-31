@@ -1,10 +1,9 @@
 
 <p align="center">
-    <b>iWizViz</b><br>
+    <b font-size: 20px>iWizViz</b><br>
     <img src="src/img/logo.png?raw=true" alt="logo"/>
+    Responsive admin dashboard powered by Angular
 </p>
-
-Responsive admin dashboard powered by Angular
 
 ## Color Palette
 
