@@ -37,3 +37,11 @@ function watch(done) {
   gulp.watch(conf.path.src('**/*.js'), gulp.series('inject'));
   done();
 }
+
+gulp.task('serveprod', function() {
+  connect.server({
+    root: '.tmp',
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
