@@ -39,10 +39,10 @@ $ gulp serve
 $ gulp test
 ```
 
-## Build, Run, Test
+## Create new component
 
 ```sh
-$ yo fountain-angular1:component --name isidebar --dir components/sidebar
+$ yo fountain-angular1:component --name componentName --dir components/componentName
 ```
 
 ## Features
