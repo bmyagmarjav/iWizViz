@@ -1,3 +1,2 @@
 angular
-  .module('app', [])
-  .service('todoService', TodoService);
+  .module('app', []);

@@ -1,5 +1,8 @@
 # iWizViz
 
+<p align="center">
+![Alt text](src/img/logo.png?raw=true "color palette")
+</p>
 Responsive admin dashboard powered by Angular
 
 ## Color Palette
@@ -32,6 +35,12 @@ $ sudo bower install
 $ gulp build
 $ gulp serve
 $ gulp test
+```
+
+## Build, Run, Test
+
+```sh
+$ yo fountain-angular1:component --name isidebar --dir components/sidebar
 ```
 
 ## Features
