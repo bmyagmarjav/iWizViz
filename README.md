@@ -1,4 +1,4 @@
-<h1 aling="center">iWizViz</h1>
+<h1 style="text-align: center">iWizViz</h1>
 
 <p align="center">
   <img src="src/img/logo.png?raw=true" alt="logo"/>
