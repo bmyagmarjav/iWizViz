@@ -1,5 +1,5 @@
 
-<p align="center" size="80px">
+<p align="center" font-size="80px">
     # iWizViz <br>
     <img src="src/img/logo.png?raw=true" alt="logo"/><br>
     Responsive admin dashboard powered by Angular
