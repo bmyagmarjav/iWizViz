@@ -11,6 +11,7 @@ gulp.task('inject', inject);
 function inject() {
     const injectStyles = gulp.src(conf.path.src('**/*.css'), {read: false});
     const injectScripts = gulp.src([
+        conf.path.tmp('app/services/*.js'),
         conf.path.tmp('index.js'),
         conf.path.tmp('app/constants/*.js'),
         conf.path.tmp('app/components/*.js'),
