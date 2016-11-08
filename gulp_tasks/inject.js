@@ -9,7 +9,7 @@ const conf = require('../conf/gulp.conf');
 gulp.task('inject', inject);
 
 function inject() {
-    const injectStyles = gulp.src(conf.path.src('**/*.css'), {read: false});
+    const injectStyles = gulp.src(conf.path.src('**/*.css'),{read: false});
     const injectScripts = gulp.src([
         conf.path.tmp('app/services/*.js'),
         conf.path.tmp('index.js'),
