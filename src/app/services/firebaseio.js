@@ -7,7 +7,8 @@ var config = {
 
 var tables = {
   migratiion: 'Migration Flows Between Regions',
-  states: 'states'
+  states: 'states',
+  reasons: 'Reason for Move'
 };
 
 var from = {
@@ -23,6 +24,7 @@ function Firebaseio() {
   this.root = firebase.database().ref();
   this.migration = this.root.child(tables.migratiion);
   this.states = this.root.child(tables.states);
+  this.reasons = this.root.child(tables.reasons)
 }
 
 Firebaseio.prototype = {
@@ -55,12 +57,19 @@ Firebaseio.prototype = {
   getUsaStates: function (cb) {
     this.states.once('value', function (snapshot) {
       cb(null, snapshot.val().features);
-    }, function (errro) {
+    }, function (error) {
+      cb(error, null);
+    });
+  },
+  // read reasons
+  getReasons: function (year, cb) {
+    this.reasons.child(year).once('value', function (snapshot) {
+      cb(null, snapshot.val());
+    }, function (error) {
       cb(error, null);
     });
   }
 };
-
 // setter method which takes arguments of total number migration of each states
 function set(n, m, s, w) {
   this.value =
@@ -81,7 +90,6 @@ function set(n, m, s, w) {
       coordinate: {lat: 37.076979, long: -107.250398}
     }];
 }
-
 // get object which contains total number of each states migration
 function get() {
   return this.value;
