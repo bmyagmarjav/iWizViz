@@ -61,6 +61,14 @@ Firebaseio.prototype = {
       cb(error, null);
     });
   },
+  // read migration
+  getMigration: function(year, cb) {
+    this.migration.child(year).once('value', function (snapshot) {
+      cb(null, snapshot.val());
+    }, function (error) {
+      cb(error, null);
+    });
+  },
   // read reasons
   getReasons: function (year, cb) {
     this.reasons.child(year).once('value', function (snapshot) {
