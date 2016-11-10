@@ -8,7 +8,9 @@
     "topojson": "^2.1.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "fontawesome#^4.7.0",
-    "radios-to-slider": "^0.3.0"
+    "radios-to-slider": "^0.3.0",
+    "animate.css": "^3.5.2",
+    "d3-sankey": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0"
@@ -37,6 +39,11 @@
         "dist/radios-to-slider.css",
         "dist/jquery.radios-to-slider.js"
       ]
+    },
+    "d3-sankey": {
+        "main": [
+            "sankey/sankey.js"
+        ]
     }
   }
 }
