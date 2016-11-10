@@ -2,6 +2,9 @@ function D3srv() {
 }
 
 D3srv.prototype = {
+  selectWindow: function () {
+    return d3.select(window);
+  },
   getAlberUsa: function () {
     return d3.geo.albersUsa();
   },
@@ -17,7 +20,7 @@ D3srv.prototype = {
   },
   // linear scale output  with color
   getScaleLinearColors: function () {
-    return d3.scale.linear().range(["#FE5E87", "#678FFE", "#81DF49", "#FCCE48"]);
+    return d3.scale.linear().range(["#70DCDC", "#59A0D5", "#D0B3DF", "#FAB9C6"]);
   },
   readCSV: function (filePath, cb) {
     d3.csv(filePath, function (data) {
@@ -41,11 +44,11 @@ D3srv.prototype = {
         return projection([d.coordinate.long, d.coordinate.lat])[1];
       })
       .attr("r", function (d) {
-        return Math.sqrt(d.total) * 1.5;
+        return Math.sqrt(d.total) * 0.9;
       })
-      .style("fill", "#1BE4E5")
+      .style("fill", "rgb(151, 181, 181)")
       .style("opacity", 0.6)
       .style("stroke", "#fff")
-      .style("stroke-width", 3);
+      .style("stroke-width", 2);
   }
 };

@@ -6,7 +6,8 @@ var config = {
 };
 
 var tables = {
-  migratiion: 'Migration Flows Between Regions'
+  migratiion: 'Migration Flows Between Regions',
+  states: 'states'
 };
 
 var from = {
@@ -21,6 +22,7 @@ firebase.initializeApp(config);
 function Firebaseio() {
   this.root = firebase.database().ref();
   this.migration = this.root.child(tables.migratiion);
+  this.states = this.root.child(tables.states);
 }
 
 Firebaseio.prototype = {
@@ -48,9 +50,18 @@ Firebaseio.prototype = {
     }, function (error) {
       cb(error, null);
     });
+  },
+  // states reference to call all states coordinates GeoJSON
+  getUsaStates: function (cb) {
+    this.states.once('value', function (snapshot) {
+      cb(null, snapshot.val());
+    }, function (errro) {
+      cb(error, null);
+    });
   }
 };
 
+// setter method which takes arguments of total number migration of each states
 function set(n, m, s, w) {
   this.value =
     [{region: 'Northeast',
@@ -71,6 +82,7 @@ function set(n, m, s, w) {
     }];
 }
 
+// get object which contains total number of each states migration
 function get() {
   return this.value;
 }
