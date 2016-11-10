@@ -54,7 +54,7 @@ Firebaseio.prototype = {
   // states reference to call all states coordinates GeoJSON
   getUsaStates: function (cb) {
     this.states.once('value', function (snapshot) {
-      cb(null, snapshot.val());
+      cb(null, snapshot.val().features);
     }, function (errro) {
       cb(error, null);
     });
