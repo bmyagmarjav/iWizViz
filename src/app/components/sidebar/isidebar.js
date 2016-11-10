@@ -1,10 +1,5 @@
-/*
-* Testing firebase
-*/
 (function () {
   'use strict';
-
-  // component sample
   angular
   .module('app')
   .component('isidebar', {
@@ -16,7 +11,11 @@
   });
 
   // contoller for sampel componenet
-  function isidebarController() {
-
+  function isidebarController($scope) {
+    $('li a').click(function (e) {
+      e.preventDefault();
+      $('a').removeClass('active');
+      $(this).addClass('active');
+    });
   }
 })();
