@@ -39,9 +39,10 @@ $ gulp serve
 $ gulp test
 ```
 
-## Create new component
+## Install yo generator and create new component
 
 ```sh
+$ npm install -g generator-fountain-angular1
 $ yo fountain-angular1:component --name componentName --dir components/componentName
 ```
 
