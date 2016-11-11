@@ -23,7 +23,7 @@
 
     d3.selectWindow().on("resize", function () {
       w = $window.innerWidth * col / 12;
-      h = $window.innerHeight / 2;
+      h = $window.innerHeight / 2.5;
       projection = d3.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
       path = d3.getPath().projection(projection);
       svg = d3.getSVG('.flowmap', w, h);
@@ -61,19 +61,24 @@
       d3.displayBubbles(svg, data, projection);
 
       // drawing the lines point to point
-      var x1 = projection([data[0].coordinate.long, data[0].coordinate.lat])[0];
-      var y1 = projection([data[0].coordinate.long, data[0].coordinate.lat])[1];
+      var x2 = projection([data[0].coordinate.long, data[0].coordinate.lat])[0];
+      var y2 = projection([data[0].coordinate.long, data[0].coordinate.lat])[1];
       for (var i = 1; i < 4; i++) {
-        var x2 = projection([data[i].coordinate.long, data[i].coordinate.lat])[0];
-        var y2 = projection([data[i].coordinate.long, data[i].coordinate.lat])[1];
+        var x1 = projection([data[i].coordinate.long, data[i].coordinate.lat])[0];
+        var y1 = projection([data[i].coordinate.long, data[i].coordinate.lat])[1];
 
         svg.append("line")
-        .attr("x1", x1)
-        .attr("y1", y1)
-        .attr("x2", x2)
-        .attr("y2", y2)
-        .attr("stroke-width", 3)
-        .attr("stroke", "rgb(251, 144, 51)");
+          .attr("x1", x1)
+          .attr("y1", y1)
+          .attr("x2", x1)
+          .attr("y2", y1)
+          .attr("stroke-width", 3)
+          .attr("stroke", "rgb(251, 144, 51)")
+          .transition()
+            .duration(2000)
+            .ease("linear")
+            .attr("x2", x2)
+            .attr("y2", y2);
       }
     });
   }
