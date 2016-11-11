@@ -18,6 +18,14 @@ var from = {
   West: 'From West'
 };
 
+function createLink(s, t, v) {
+  return {
+    source: s,
+    target: t,
+    value: v
+  }
+}
+
 firebase.initializeApp(config);
 
 function Firebaseio() {
@@ -62,11 +70,24 @@ Firebaseio.prototype = {
     });
   },
   // read migration
-  getMigration: function(year, cb) {
+  getNodesAndLinks: function(year, cb) {
     this.migration.child(year).once('value', function (snapshot) {
-      cb(null, snapshot.val());
+      var nodes = [];
+      var links = [];
+
+      Object.keys(from).forEach(function(key) {
+        nodes.push({name: key});
+        var data = snapshot.val()[from[key]];
+        Object.keys(data).forEach(function(region) {
+          links.push(createLink(from[key], region, data[region].Type1.Total));
+        });
+      });
+      Object.values(from).forEach(function(value) {
+        nodes.push({name: value})
+      });
+      cb(null, nodes, links);
     }, function (error) {
-      cb(error, null);
+      cb(error, null, null);
     });
   },
   // read reasons
