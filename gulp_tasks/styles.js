@@ -9,7 +9,7 @@ const conf = require('../conf/gulp.conf');
 gulp.task('styles', styles);
 
 function styles() {
-  return gulp.src(conf.path.src('**/*.css'))
+  return gulp.src(conf.path.src('**/**/*.css'))
     .pipe(sourcemaps.init())
     .pipe(postcss([autoprefixer()])).on('error', conf.errorHandler('Autoprefixer'))
     .pipe(sourcemaps.write())

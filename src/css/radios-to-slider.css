@@ -1,0 +1,110 @@
+.radios-to-slider{
+	background-color:rgb(151, 181, 181);;
+	display:block;
+	position:relative;
+	margin-bottom:80px;
+	-webkit-box-sizing:content-box;
+	   -moz-box-sizing:content-box;
+	     -o-box-sizing:content-box;
+	        box-sizing:content-box;
+}
+
+
+.radios-to-slider.medium{
+	height:10px;
+	-webkit-border-radius:25px;
+	-moz-border-radius:25px;
+	-o-border-radius:25px;
+	border-radius:25px;
+	padding:5px;
+	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+	-moz-box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+	-o-box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+}
+
+/* Levels */
+.radios-to-slider .slider-level{
+	background-color:#fff;
+	cursor:pointer;
+	position:absolute;
+	display:block;
+}
+
+.radios-to-slider .slider-level.slider-lower-level{
+	opacity:0.2;
+}
+
+.radios-to-slider.medium .slider-level{
+	width:10px;
+	height:10px;
+	-webkit-border-radius:22px;
+	-moz-border-radius:22px;
+	-o-border-radius:22px;
+	border-radius:22px;
+	z-index:2;
+}
+
+/* Labels */
+.slider-label{
+	position:absolute;
+	display:block;
+	cursor:pointer;
+	color:rgb(251, 144, 51);
+	text-align:center;
+	font-size: 12px;
+}
+
+.slider-label-active
+{
+    font-weight: bold;
+}
+
+.radios-to-slider.medium .slider-label{
+	top:30px;
+	width:44px;
+}
+
+/* Slider bar */
+.radios-to-slider .slider-bar{
+	background-color:#fff;
+	float:left;
+	height:100%;
+	width:0;
+	pointer-events:none;
+	display:none;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+.slider-bar.transition-enabled{
+	-webkit-transition:.2s;
+	-moz-transition:.2s;
+	-o-transition:.2s;
+	transition:.2s;
+}
+
+.radios-to-slider.medium .slider-bar{
+	-webkit-border-radius:22px;
+	-moz-border-radius:22px;
+	-o-border-radius:22px;
+	border-radius:22px;
+}
+
+/* Slider Knob */
+.slider-knob{
+	float:right;
+	background-color:rgb(251, 144, 51);
+	margin-top: 5px;
+	margin-right: 15px;
+}
+
+.radios-to-slider.medium .slider-knob{
+	width:10px;
+	height:10px;
+	-webkit-border-radius:25px;
+	-moz-border-radius:25px;
+	-o-border-radius:25px;
+	border-radius:25px;
+}

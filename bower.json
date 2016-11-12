@@ -8,7 +8,6 @@
     "topojson": "^2.1.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "fontawesome#^4.7.0",
-    "radios-to-slider": "^0.3.0",
     "animate.css": "^3.5.2",
     "d3-sankey": "*",
     "angular-ui-router": "0.3.2"
@@ -33,12 +32,6 @@
         "fonts/fontawesome-webfont.ttf",
         "fonts/fontawesome-webfont.woff",
         "fonts/fontawesome-webfont.woff2"
-      ]
-    },
-    "radios-to-slider": {
-      "main": [
-        "dist/radios-to-slider.css",
-        "dist/jquery.radios-to-slider.js"
       ]
     },
     "d3-sankey": {
