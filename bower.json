@@ -2,7 +2,7 @@
   "name": "fountain-inject",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "^1.5.0",
+    "angular": "^1.5.8",
     "firebase": "^3.5.2",
     "d3": "3.5.17",
     "topojson": "^2.1.0",
@@ -10,7 +10,8 @@
     "font-awesome": "fontawesome#^4.7.0",
     "radios-to-slider": "^0.3.0",
     "animate.css": "^3.5.2",
-    "d3-sankey": "*"
+    "d3-sankey": "*",
+    "angular-ui-router": "0.3.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0"
@@ -41,9 +42,9 @@
       ]
     },
     "d3-sankey": {
-        "main": [
-            "sankey/sankey.js"
-        ]
+      "main": [
+        "sankey/sankey.js"
+      ]
     }
   }
 }

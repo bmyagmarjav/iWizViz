@@ -4,15 +4,20 @@
   .module('app')
   .component('iradioslider', {
     templateUrl: 'app/components/iradioslider/iradioslider.html',
-    controller: iradiosliderController
+    controller: iradiosliderController,
+    scope: {
+      selected: '='
+    }
   });
 
-  function iradiosliderController($scope, ContainerSrv, $log) {
+  function iradiosliderController($scope, ContainerSrv, $log, $rootScope) {
     $scope.years = generateYears(2000, 2016);
     $scope.selected = {year: '2001'};
+    ContainerSrv.sharedYear = $scope.selected.year;
+
     $scope.$watch('selected.year', function (value) {
-      ContainerSrv.sharedYaar = value;
-      // $log.info(ContainerSrv.sharedYaar);
+      ContainerSrv.sharedYear = value;
+      $log.info(ContainerSrv.sharedYear);
     });
   }
 
