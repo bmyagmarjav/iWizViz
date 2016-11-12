@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>iWivViz</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/logo.png" />
 
   <!-- build:css({.tmp,src}) styles/vendor.css -->
@@ -21,27 +21,9 @@
 </head>
 <body ng-app="app">
   <inavbar></inavbar>
-  <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-8">
-      <iradioslider></iradioslider>
-    </div>
-  </div>
-  <div class='row'>
-
-    <div class="col-md-5">
-      <!-- <flowmap></flowmap> -->
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
-  <div class='row'>
-    <div class="col-md-3">
-      <isidebar></isidebar>
-    </div>
-    <ui-view></ui-view>
-  </div>
+  <isidebar></isidebar>
+  <iradioslider></iradioslider>
+  <ui-view></ui-view>
 </body>
 
 <!-- build:js({.tmp,src}) scripts/vendor.js -->

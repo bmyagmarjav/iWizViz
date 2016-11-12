@@ -13,26 +13,25 @@
   function flowmapController(D3srv, Firebaseio, ContainerSrv, $window, $scope, $rootScope) {
     var d3 = D3srv;
     var io = Firebaseio;
-    var col = 5;
-    var w = $window.innerWidth * col / 12;
-    var h = $window.innerHeight / 2.5;
-    
+    var elm = angular.element(document.querySelector(".flowmap"))[0];
+    var w = elm.clientWidth;
+    var h = elm.clientHeight;
+    var color = d3.getScaleLinearColors().domain([0, 1, 2, 3]);
+
     $('#radios').radiosToSlider();
 
     var projection = d3.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
     var path = d3.getPath().projection(projection);
-    var color = d3.getScaleLinearColors();
     var svg = d3.getSVG('.flowmap', w, h);
 
     d3.selectWindow().on("resize", function () {
-      w = $window.innerWidth * col / 12;
-      h = $window.innerHeight / 2.5;
+      w = elm.clientWidth;
+      h = elm.clientHeight;
       projection = d3.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
       path = d3.getPath().projection(projection);
       svg = d3.getSVG('.flowmap', w, h);
     });
 
-    color.domain([0, 1, 2, 3]); // setting the range of the input data
 
     // Load GeoJSON data and merge with states data
     io.getUsaStates(function (error, features) {
@@ -78,7 +77,7 @@
         .attr("stroke-width", 3)
         .attr("stroke", "rgb(251, 144, 51)")
           .transition()
-          .duration(2000)
+          .duration(1000)
           .ease("linear")
           .attr("x2", x2)
           .attr("y2", y2);
