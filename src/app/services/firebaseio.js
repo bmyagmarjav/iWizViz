@@ -39,7 +39,6 @@ Firebaseio.prototype = {
   getTotalGains: function (year, cb) {
     this.migration.child(year).once('value', function (snapshot) {
       var west = south = midwest = northeast = 0;
-
       Object.values(from).forEach(function (key) {
         var json = snapshot.val()[key];
         if (key !== from.West) {

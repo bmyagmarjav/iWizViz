@@ -1,11 +1,31 @@
-/* Large desktops and laptops */
-@media (min-width: 1200px) {
-
+@media (min-width: 1919px) {
+  .flowmap {
+    height: 480px;
+  }
+  .flowmap .map {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+  .flowmap .legend {
+    position: absolute;
+    right: 30px;
+    bottom: 80px;
+  }
+}
+/* large desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1919px) {
   .flowmap {
     height: 360px;
+
   }
-  .flowmap svg {
-    margin-top: -20px;
+  .flowmap .map {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+  .flowmap .legend {
+    position: absolute;
+    right: 30px;
+    bottom: 60px;
   }
 }
 /* Landscape tablets and medium desktops */
@@ -13,8 +33,14 @@
   .flowmap {
     height: 340px;
   }
-  .flowmap svg {
+  .flowmap .map {
     margin-top: -30px;
+    margin-left: -30px;
+  }
+  .flowmap .legend {
+    position: absolute;
+    right: 30px;
+    bottom: 50px;
   }
 }
 /* Portrait tablets and small desktops */
@@ -31,8 +57,14 @@
   .flowmap {
     height: 220px;
   }
-  .flowmap svg {
-    margin-top: -50px;
+  .flowmap .map {
+    margin-top: -30px;
+    margin-left: -20px;
+  }
+  .flowmap .legend {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
   }
 }
 /* Landscape phones and portrait tablets */
@@ -43,7 +75,13 @@
   .flowmap {
     height: 280px;
   }
-  .flowmap svg {
-    margin-top: -40px;
+  .flowmap .map {
+    margin-top: -30px;
+    margin-left: -20px;
+  }
+  .flowmap .legend {
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
   }
 }

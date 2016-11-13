@@ -2,12 +2,9 @@
   'use strict';
   angular
   .module('app')
-  .config(function($stateProvider) {
-    $stateProvider.state({name: 'flowmap',
-      url: '/flowmap',
+  .component('flowmap', {
       templateUrl: 'app/components/flowmap/flowmap.html',
       controller: flowmapController
-    })
   });
 
   function flowmapController(D3srv, Firebaseio, ContainerSrv, $window, $scope, $rootScope) {
@@ -18,8 +15,10 @@
     var h = elm.clientHeight;
     var color = d3.getScaleLinearColors().domain([0, 1, 2, 3]);
 
+    console.log(w/280);
     $('#radios').radiosToSlider();
 
+    d3.addLegend('.flowmap', color, w, h);
     var projection = d3.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
     var path = d3.getPath().projection(projection);
     var svg = d3.getSVG('.flowmap', w, h);

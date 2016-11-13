@@ -1,3 +1,6 @@
+var colors = ["#70DCDC", "#59A0D5", "#D0B3DF", "#FAB9C6"];
+var regionLegend = ["West", "Midwest", "South", "Northeast"];
+
 function D3srv() {
 }
 
@@ -16,11 +19,14 @@ D3srv.prototype = {
   },
   // Create SVG element and append map to the SVG
   getSVG: function (c, w, h) {
-    return d3.select(c).append("svg").attr("width", w).attr("height", h);
+    return d3.select(c).append("svg")
+      .attr("class", "map")
+      .attr("width", w)
+      .attr("height", h);
   },
   // linear scale output  with color
   getScaleLinearColors: function () {
-    return d3.scale.linear().range(["#70DCDC", "#59A0D5", "#D0B3DF", "#FAB9C6"]);
+    return d3.scale.linear().range(colors);
   },
   readCSV: function (filePath, cb) {
     d3.csv(filePath, function (data) {
@@ -50,5 +56,30 @@ D3srv.prototype = {
       .style("opacity", 0.6)
       .style("stroke", "#fff")
       .style("stroke-width", 2);
+  },
+  addLegend: function(c, color, w, h) {
+    var legend = d3.select(c).append("svg")
+      .attr("class", "legend")
+      .attr("width", w/5)
+      .attr("height", h/6)
+      .selectAll("g")
+      .data(color.domain().slice())
+        .enter()
+        .append("g")
+        .attr("transform", function(d, i) { return "translate(0," + ((i * w/48) + w/280) + ")"; });
+
+      legend.append("rect")
+        .attr("width", w/72)
+        .attr("height", w/72)
+        .style("fill", color);
+
+      legend.append("text")
+        .data(regionLegend)
+        .attr("x", w/48)
+        .attr("y", w/280)
+        .attr("dy", ".50em")
+        .style("fill", "rgb(151, 181, 181)")
+        .style('font-size', ''+ w/48 +'px')
+        .text(function(d) { return d; });
   }
 };
