@@ -3,22 +3,24 @@
   angular
   .module('app')
   .component('iradioslider', {
+    bindings: {
+      year: '<'
+    },
     templateUrl: 'app/components/iradioslider/iradioslider.html',
-    controller: iradiosliderController,
-    scope: {
-      selected: '='
-    }
+    controller: iradiosliderController
   });
 
-  function iradiosliderController($scope, ContainerSrv, $log, $rootScope) {
+  function iradiosliderController($scope, ContainerSrv, $log, $state) {
     $scope.years = generateYears(2000, 2016);
-    $scope.selected = {year: '2001'};
-    ContainerSrv.sharedYear = $scope.selected.year;
+    this.year = 2001;
 
-    $scope.$watch('selected.year', function (value) {
+    $scope.$watch('$ctrl.year', function (value) {
       ContainerSrv.sharedYear = value;
-      $log.info(ContainerSrv.sharedYear);
     });
+
+    $scope.reload = function() {
+      $state.reload();
+    }
   }
 
   function generateYears(start, end) {

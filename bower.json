@@ -10,7 +10,8 @@
     "font-awesome": "fontawesome#^4.7.0",
     "animate.css": "^3.5.2",
     "d3-sankey": "*",
-    "angular-ui-router": "0.3.2"
+    "angular-ui-router": "0.3.2",
+    "bootstrap-select": "^1.11.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0"

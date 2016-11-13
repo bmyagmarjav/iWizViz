@@ -1,5 +1,4 @@
 function inavbarController() {
-  this.text = 'My brand new component!';
 }
 
 angular
@@ -8,4 +7,3 @@ angular
     templateUrl: 'app/components/inavbar/inavbar.html',
     controller: inavbarController
   });
-

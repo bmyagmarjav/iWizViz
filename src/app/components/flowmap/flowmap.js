@@ -3,12 +3,14 @@
   angular
   .module('app')
   .component('flowmap', {
-      templateUrl: 'app/components/flowmap/flowmap.html',
-      controller: flowmapController
+    bindings: {
+      year: '<'
+    },
+    templateUrl: 'app/components/flowmap/flowmap.html',
+    controller: flowmapController
   });
 
-  function flowmapController(D3srv, Firebaseio, ContainerSrv) {
-    $('#radios').radiosToSlider();
+  function flowmapController(D3srv, Firebaseio, ContainerSrv, $scope) {
     var d3flowmap = D3srv.flowmap;
     var io = Firebaseio;
     var elm = angular.element(document.querySelector(".flowmap"))[0];
@@ -18,7 +20,9 @@
     var projection = d3flowmap.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
     var path = d3flowmap.getPath().projection(projection);
     var svg = d3flowmap.getSVG('.flowmap', w, h);
-    var YEAR = 2015;
+    var YEAR = ContainerSrv.sharedYear;
+    this.year = ContainerSrv.sharedYear;
+    console.log(ContainerSrv.sharedYear);
 
     // Define the div for the tooltip
     var div = d3flowmap.getTooltip();
@@ -33,6 +37,7 @@
     // get the total number of array to display bubbles on teh screen
     io.getTotalGains(YEAR, function (error, data) {
       if (error) {throw error;}
+
       // draws the bubbles
       var bubbles = d3flowmap.displayBubbles(svg, data, projection, w);
       var selected = null;
@@ -59,6 +64,7 @@
           })
           .style("opacity", 0.8);
         selected = d;
+        console.log(data[0]);
       })
       .on('mouseover', function(d) {
         d3flowmap.tooltip.show(div);

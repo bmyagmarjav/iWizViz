@@ -8,7 +8,7 @@
   });
 
   // contoller for sampel componenet
-  function isidebarController($scope) {
+  function isidebarController($scope, $state) {
     $('li a').click(function (e) {
       e.preventDefault();
       $('a').removeClass('active');

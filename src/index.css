@@ -2,140 +2,152 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
 
 body {
-   overflow: hidden;
-   background: rgb(240, 243, 244);
-   letter-spacing: 3px;
+  overflow: hidden;
+  background: rgb(240, 243, 244);
+  letter-spacing: 3px;
 }
 
 .navbar {
-   border: 0;
-   background: #fff;
-   box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+  border: 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
 }
 
 .navbar .navbar-header {
-   width: 250px;
+  width: 250px;
 }
 
 .navbar .navbar-brand {
-   margin-top: -5px;
+  margin-top: -5px;
 }
 
 .navbar .navbar-brand:hover {
-   margin-top: -10px;
+  margin-top: -10px;
 }
 
 .navbar .navbar-text {
-   font-size: 16px;
-   font-family: 'Coiny';
-   color: rgb(151, 181, 181);
+  font-size: 16px;
+  font-family: 'Coiny';
+  color: rgb(151, 181, 181);
 }
 
 .input-group-addon {
-   background-color: #fff;
-   border: 0;
+  background-color: #fff;
+  border: 0;
 }
 
 .form-control {
-   border: 0;
-   color: rgb(151, 181, 181);
-   -webkit-box-shadow: none;
-   box-shadow: none;
-   right: 14px;
+  border: 0;
+  color: rgb(151, 181, 181);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  right: 14px;
 }
 
 .form-control:focus {
-   outline: 0;
-   -webkit-box-shadow: none;
-   box-shadow: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .isidebar-list {
-   position: fixed;
-   top: 50px;
-   width: 250px;
-   height: 100%;
-   margin: 0;
-   padding: 0;
-   padding-top: 15px;
-   list-style: none;
-   background: #fff;
-   box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+  position: fixed;
+  top: 50px;
+  width: 250px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  list-style: none;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
 }
 
 .isidebar-list li {
-   text-indent: 20px;
-   line-height: 40px;
+  text-indent: 20px;
+  line-height: 40px;
 }
 
 .isidebar-list li a {
-   display: block;
-   text-decoration: none;
-   font-size: 16px;
-   font-family: 'Comfortaa';
-   color: rgb(251, 144, 51);
+  display: block;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Comfortaa';
+  color: rgb(251, 144, 51);
 }
 
 .isidebar-list li a .fa {
-   color: rgb(151, 181, 181);
-   margin-right: 20px
+  color: rgb(151, 181, 181);
+  margin-right: 20px
 }
 
 .isidebar-list li .active {
-   text-decoration: none;
-   color: #fff;
-   width: 260px;
-   background: #70DCDC;
-   box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+  text-decoration: none;
+  color: #fff;
+  width: 260px;
+  background: #70DCDC;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
 }
 
 .isidebar-list li a:active,
 .isidebar-list li a:focus {
-   text-decoration: none;
+  text-decoration: none;
 }
 
 .line {
-   position: fixed;
-   bottom: 50px;
-   margin-left: 5px;
-   width: 240px;
-   border: 1px solid rgba(0,0,0,0.16);
+  position: fixed;
+  bottom: 50px;
+  margin-left: 5px;
+  width: 240px;
+  border: 1px solid rgba(0,0,0,0.16);
 }
 
 .social {
-   position: fixed;
-   width: 250px;
-   bottom: 10px;
+  position: fixed;
+  width: 250px;
+  bottom: 10px;
 }
 
 .social .fa {
-   padding: 0px 10px 0px 10px;
-   color: rgb(151, 181, 181);
+  padding: 0px 10px 0px 10px;
+  color: rgb(151, 181, 181);
 }
 
 .social .fa:hover {
-   color: rgb(251, 144, 51);
-   text-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23)
+  color: rgb(251, 144, 51);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23)
 }
 
 #radios {
-   margin-top: 80px;
+  margin-top: 80px;
 }
 
 .card {
-   background: #F9FCFE;
-   box-shadow: 0 19px 48px rgba(0,0,0,0.10), 0 10px 12px rgba(0,0,0,0.08);
+  background: #F9FCFE;
+  box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+}
+
+.card:hover {
+  box-shadow: 3px 4px 6px 0px rgba(46,61,73,0.15);
 }
 
 .card .graph-header {
-   color: rgb(151, 181, 181);
-   padding: 10px 0px 10px 10px;
-   border-bottom: 1px solid rgba(0,0,0,0.16);
+  font-size: 18px;
+  color: rgb(151, 181, 181);
+  padding: 10px 0px 10px 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.16);
+}
+
+.year-label {
+  position: absolute;
+  right: 40px;
+  top: 50px;
+  color: rgb(151, 181, 181);
 }
 
 .flowmap-tooltip {
   position: absolute;
-  z-index:: 1001;
+  z-index: 1;
   text-align: center;
   width: 240px;
   height: 40px;
