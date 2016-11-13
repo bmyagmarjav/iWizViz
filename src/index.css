@@ -132,3 +132,19 @@ body {
    padding: 10px 0px 10px 10px;
    border-bottom: 1px solid rgba(0,0,0,0.16);
 }
+
+.flowmap-tooltip {
+  position: absolute;
+  z-index:: 1001;
+  text-align: center;
+  width: 240px;
+  height: 40px;
+  padding: 10px 10px 0 0;
+  font: 12px;
+  font-weight: bold;
+  background: #fff;
+  font-family: 'Comfortaa';
+  color: rgb(151, 181, 181);
+  pointer-events: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+}

@@ -16,7 +16,6 @@
 @media (min-width: 1200px) and (max-width: 1919px) {
   .flowmap {
     height: 360px;
-
   }
   .flowmap .map {
     margin-top: -30px;
@@ -26,6 +25,7 @@
     position: absolute;
     right: 30px;
     bottom: 60px;
+    z-index: -1001;
   }
 }
 /* Landscape tablets and medium desktops */

@@ -7,80 +7,72 @@
       controller: flowmapController
   });
 
-  function flowmapController(D3srv, Firebaseio, ContainerSrv, $window, $scope, $rootScope) {
-    var d3 = D3srv;
+  function flowmapController(D3srv, Firebaseio, ContainerSrv) {
+    $('#radios').radiosToSlider();
+    var d3flowmap = D3srv.flowmap;
     var io = Firebaseio;
     var elm = angular.element(document.querySelector(".flowmap"))[0];
     var w = elm.clientWidth;
     var h = elm.clientHeight;
-    var color = d3.getScaleLinearColors().domain([0, 1, 2, 3]);
+    var color = d3flowmap.getScaleLinearColors().domain([0, 1, 2, 3]);
+    var projection = d3flowmap.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
+    var path = d3flowmap.getPath().projection(projection);
+    var svg = d3flowmap.getSVG('.flowmap', w, h);
+    var YEAR = 2015;
 
-    console.log(w/280);
-    $('#radios').radiosToSlider();
+    // Define the div for the tooltip
+    var div = d3flowmap.getTooltip();
 
-    d3.addLegend('.flowmap', color, w, h);
-    var projection = d3.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
-    var path = d3.getPath().projection(projection);
-    var svg = d3.getSVG('.flowmap', w, h);
-
-    d3.selectWindow().on("resize", function () {
-      w = elm.clientWidth;
-      h = elm.clientHeight;
-      projection = d3.getAlberUsa().translate([w / 2, h / 2]).scale([w]);
-      path = d3.getPath().projection(projection);
-      svg = d3.getSVG('.flowmap', w, h);
-    });
-
-
+    d3flowmap.addLegend('.flowmap', color, w, h);
     // Load GeoJSON data and merge with states data
     io.getUsaStates(function (error, features) {
-      if (error) {
-        throw error;
-      }
-      // Bind the data to the SVG and create one path per GeoJSON feature
-      svg.selectAll("path")
-        .data(features)
-        .enter()
-        .append("path")
-        .attr("d", path)
-        .style("stroke", "#fff")
-        .style("stroke-width", 1)
-        .style("fill", function (d) {
-          var value = d.properties.region;
-          return color(value);
-        });
+      if (error) {throw error;}
+      d3flowmap.displayGeoPath(svg, features, path, color);
     });
 
     // get the total number of array to display bubbles on teh screen
-    io.getTotalGains('2001', function (error, data) {
-      if (error) {
-        throw error;
-      }
-      // console.log(data);
-
+    io.getTotalGains(YEAR, function (error, data) {
+      if (error) {throw error;}
       // draws the bubbles
-      d3.displayBubbles(svg, data, projection);
-
-      // drawing the lines point to point
-      var x2 = projection([data[0].coordinate.long, data[0].coordinate.lat])[0];
-      var y2 = projection([data[0].coordinate.long, data[0].coordinate.lat])[1];
-      for (var i = 1; i < 4; i++) {
-        var x1 = projection([data[i].coordinate.long, data[i].coordinate.lat])[0];
-        var y1 = projection([data[i].coordinate.long, data[i].coordinate.lat])[1];
-
-        svg.append("line")
-        .attr("x1", x1)
-        .attr("y1", y1)
-        .attr("x2", x1)
-        .attr("y2", y1)
-        .attr("stroke-width", 3)
-        .attr("stroke", "rgb(251, 144, 51)")
-          .transition()
+      var bubbles = d3flowmap.displayBubbles(svg, data, projection, w);
+      var selected = null;
+      //mouse interaction
+      bubbles.on("mousedown", function(d) {
+        // drawing the lines point to point
+        d3flowmap.removeLines(svg);
+        d3flowmap.tooltip.hide(div);
+        d3flowmap.drawLines(svg, data, projection, d.index);
+        //when bubble selected
+        bubbles.transition()
           .duration(1000)
-          .ease("linear")
-          .attr("x2", x2)
-          .attr("y2", y2);
-      }
+          .attr("r", function (data) {
+            if (data.region == d.region) {
+              return Math.sqrt(data.total) * w/600;
+            }
+            return Math.sqrt(data[d.region]) * w/600;
+          })
+          .style("fill", function (data) {
+            if (data.region == d.region) {
+              return "#23CF5F";
+            }
+            return "#DE1C5C";
+          })
+          .style("opacity", 0.8);
+        selected = d;
+      })
+      .on('mouseover', function(d) {
+        d3flowmap.tooltip.show(div);
+        if (selected != null && d.region != selected.region) {
+          div.html(d.region + ' lost '  + selected[d.region]);
+        } else {
+          div.html(d.region + ' gain '  + d.total)
+        }
+        div.style("left", (d3.mouse(this)[0]) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px");
+      })
+      .on("mouseout", function(d) {
+        d3flowmap.tooltip.hide(div);
+      });
     });
   }
 })(window.angular);
