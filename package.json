@@ -52,6 +52,7 @@
     "test": "gulp test",
     "test:auto": "gulp test:auto",
     "bower": "bower",
+    "postinstall": "./node_modules/bower/bin/bower install",
     "start": "node heroku.js"
   },
   "eslintConfig": {
