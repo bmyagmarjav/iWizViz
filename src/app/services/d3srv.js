@@ -29,7 +29,7 @@ D3srv.prototype = {
     getScaleLinearColors: function () {
       return d3.scale.linear().range(colors);
     },
-    displayGeoPath: function(svg, features, path, color) {
+    displayGeoPath: function (svg, features, path, color) {
       // Bind the data to the SVG and create one path per GeoJSON feature
       svg.selectAll("path")
         .data(features)
@@ -60,37 +60,35 @@ D3srv.prototype = {
         .style("fill", "rgb(151, 181, 181)")
         .style("opacity", 0.6)
         .style("stroke", "#fff")
-        .style("stroke-width", 2)
-        .transition()
-          .duration(500)
-          .attr("r", function (d) {
-            return Math.sqrt(d.total) * w/600;
-          })
+        .style("stroke-width", 2);
     },
     addLegend: function (c, color, w, h) {
       var legend = d3.select(c).append("svg")
         .attr("class", "legend")
-        .attr("width", w/5)
-        .attr("height", h/6)
+        .attr("width", w / 5)
+        .attr("height", h / 6)
         .selectAll("g")
         .data(color.domain().slice())
           .enter()
           .append("g")
-          .attr("transform", function(d, i) { return "translate(0," + ((i * w/48) + w/280) + ")"; });
-
+          .attr("transform", function (d, i) {
+            return "translate(0," + ((i * w / 48) + w / 280) + ")";
+          });
       legend.append("rect")
-        .attr("width", w/72)
-        .attr("height", w/72)
+        .attr("width", w / 72)
+        .attr("height", w / 72)
         .style("fill", color);
 
       legend.append("text")
         .data(regionLegend)
-        .attr("x", w/48)
-        .attr("y", w/280)
+        .attr("x", w / 48)
+        .attr("y", w / 280)
         .attr("dy", ".50em")
         .style("fill", "rgb(151, 181, 181)")
-        .style('font-size', ''+ w/48 +'px')
-        .text(function(d) { return d; });
+        .style('font-size', w / 48 + 'px')
+        .text(function (d) {
+          return d;
+        });
     },
     drawLines: function (svg, data, projection, index) {
       var x2 = projection([data[index].coordinate.long, data[index].coordinate.lat])[0];
@@ -122,10 +120,10 @@ D3srv.prototype = {
         .style("opacity", 0);
     },
     tooltip: {
-      hide: function(div) {
+      hide: function (div) {
         div.transition().duration(500).style("opacity", 0);
       },
-      show: function(div) {
+      show: function (div) {
         div.transition().duration(500).style("opacity", 1);
       }
     }

@@ -1,10 +1,10 @@
-(function(angular) {
+(function () {
   'use strict';
   angular
   .module('app')
   .component('isidebar', {
     templateUrl: 'app/components/sidebar/isidebar.html',
-    controller: isidebarController,
+    controller: isidebarController
   });
 
   // contoller for sampel componenet
@@ -15,4 +15,4 @@
       $(this).addClass('active');
     });
   }
-})(window.angular);
+})();

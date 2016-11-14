@@ -22,7 +22,7 @@ var rev = {
   'From Northeast': 'Northeast',
   'From Midwest': 'Midwest',
   'From South': 'South',
-  'From West' : 'West'
+  'From West': 'West'
 };
 
 var to = {
@@ -30,14 +30,14 @@ var to = {
   Midwest: ' Midwest',
   South: 'South',
   West: 'West'
-}
+};
 
 function createLink(s, t, v) {
   return {
     source: s,
     target: t,
     value: v
-  }
+  };
 }
 
 function dict(key, value) {
@@ -50,7 +50,7 @@ function Firebaseio() {
   this.root = firebase.database().ref();
   this.migration = this.root.child(tables.migratiion);
   this.states = this.root.child(tables.states);
-  this.reasons = this.root.child(tables.reasons)
+  this.reasons = this.root.child(tables.reasons);
 }
 
 Firebaseio.prototype = {
@@ -74,11 +74,11 @@ Firebaseio.prototype = {
       });
       var data = snapshot.val();
       var object = [];
-      Object.keys(to).forEach(function(vk) {
+      Object.keys(to).forEach(function (vk) {
         var each = [];
-        Object.keys(data).forEach(function(key) {
+        Object.keys(data).forEach(function (key) {
           var region = data[key][to[vk]];
-          if (region != undefined) {
+          if (region !== undefined) {
             each.push(dict(key, region.Type1.Total));
           }
         });
@@ -101,20 +101,20 @@ Firebaseio.prototype = {
     });
   },
   // read migration
-  getNodesAndLinks: function(year, cb) {
+  getNodesAndLinks: function (year, cb) {
     this.migration.child(year).once('value', function (snapshot) {
       var nodes = [];
       var links = [];
 
-      Object.keys(from).forEach(function(key) {
+      Object.keys(from).forEach(function (key) {
         nodes.push({name: key});
         var data = snapshot.val()[from[key]];
-        Object.keys(data).forEach(function(region) {
+        Object.keys(data).forEach(function (region) {
           links.push(createLink(from[key], region, data[region].Type1.Total));
         });
       });
-      Object.values(from).forEach(function(value) {
-        nodes.push({name: value})
+      Object.values(from).forEach(function (value) {
+        nodes.push({name: value});
       });
       cb(null, nodes, links);
     }, function (error) {
@@ -139,7 +139,7 @@ function set(n, m, s, w, arr) {
       index: 0,
       Midwest: 0,
       South: 0,
-      West: 0,
+      West: 0
     },
     {region: 'Midwest',
       total: m,
@@ -165,15 +165,15 @@ function set(n, m, s, w, arr) {
       Northeast: 0,
       South: 0
     }];
-    for (var i = 0; i < arr.length; i++) {
-      for (var j = 0; j < 4; j++) {
-        Object.keys(arr[i][j]).forEach(function(key) {
-          if (rev[key] != undefined) {
-            value[i][rev[key]] = arr[i][j][key];
-          }
-        });
-      }
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < 4; j++) {
+      Object.keys(arr[i][j]).forEach(function (key) {
+        if (rev[key] !== undefined) {
+          value[i][rev[key]] = arr[i][j][key];
+        }
+      });
     }
+  }
 }
 // get object which contains total number of each states migration
 function get() {
