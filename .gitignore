@@ -1,5 +1,6 @@
 coverage/
-dist/
+dist/*
+!dist/img
 node_modules/
 bower_components/
 
