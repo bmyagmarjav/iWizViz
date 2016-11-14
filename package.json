@@ -44,13 +44,15 @@
     "uglify-save-license": "^0.4.1",
     "wiredep": "^4.0.0"
   },
+  "main": "heroku.js",
   "scripts": {
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
     "test:auto": "gulp test:auto",
-    "bower": "bower"
+    "bower": "bower",
+    "start": "node heroku.js"
   },
   "eslintConfig": {
     "globals": {
@@ -69,5 +71,8 @@
       "no-undef": 0,
       "no-unused-vars": 0
     }
+  },
+  "dependencies": {
+    "express": "^4.14.0"
   }
 }
