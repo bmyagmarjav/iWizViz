@@ -138,10 +138,15 @@ body {
   border-bottom: 1px solid rgba(0,0,0,0.16);
 }
 
+.card .graph-icon {
+  position: absolute;
+  color: rgb(151, 181, 181);
+  right: 25px;
+  top: 25px;
+}
+
 .year-label {
   position: absolute;
-  right: 40px;
-  top: 50px;
   color: rgb(151, 181, 181);
 }
 

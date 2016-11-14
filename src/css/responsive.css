@@ -11,20 +11,29 @@
     right: 30px;
     bottom: 80px;
   }
+  .year-label {
+    right: 40px;
+    top: 50px;
+  }
 }
 /* large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1919px) {
   .flowmap {
-    height: 360px;
+    height: 330px;
   }
   .flowmap .map {
-    margin-top: -30px;
+    margin-top: -40px;
     margin-left: -30px;
   }
   .flowmap .legend {
     position: absolute;
     right: 30px;
-    bottom: 60px;
+    bottom: 50px;
+  }
+  .year-label {
+    font-size: 30px;
+    right: 25px;
+    top: 40px;
   }
 }
 /* Landscape tablets and medium desktops */

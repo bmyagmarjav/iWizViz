@@ -55,12 +55,17 @@ D3srv.prototype = {
           return projection([d.coordinate.long, d.coordinate.lat])[1];
         })
         .attr("r", function (d) {
-          return Math.sqrt(d.total) * w/600;
+          return 0;
         })
         .style("fill", "rgb(151, 181, 181)")
         .style("opacity", 0.6)
         .style("stroke", "#fff")
-        .style("stroke-width", 2);
+        .style("stroke-width", 2)
+        .transition()
+          .duration(500)
+          .attr("r", function (d) {
+            return Math.sqrt(d.total) * w/600;
+          })
     },
     addLegend: function (c, color, w, h) {
       var legend = d3.select(c).append("svg")
