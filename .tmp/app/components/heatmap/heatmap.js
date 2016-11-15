@@ -10,7 +10,7 @@
 
   var geo = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAJ5NvGs4ZiA7SIu9WPxnP0tKYT1aHlOXo&address=';
 
-  function heatmapController($window, $scope, $http) {
+  function heatmapController($window, $scope, $http, Firebaseio) {
     $window.map = new google.maps.Map(document.getElementById('map'), {
       center: {
         lat: 40.759715,
@@ -37,12 +37,12 @@
       $window.map.setCenter(center);
     });
 
-
     var coordinates = [];
-
-    var Url   = "../../../data/convertcsv.json";
-    $http.get(Url).then(function(response){
-      response.data.forEach(function(val) {
+    Firebaseio.getPopulation(function(error, data) {
+      if (error) {
+        throw error;
+      }
+      data.forEach(function(val) {
         var marker = new google.maps.Marker({
           position: {
             lat: val.lat,
@@ -58,9 +58,6 @@
           weight: val[2015]
         });
       });
-      console.log(coordinates);
-
-
 
       var heatmap = new google.maps.visualization.HeatmapLayer({
         data: coordinates,

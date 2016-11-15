@@ -8,7 +8,8 @@ var config = {
 var tables = {
   migratiion: 'Migration Flows Between Regions',
   states: 'states',
-  reasons: 'Reason for Move'
+  reasons: 'Reason for Move',
+  population: 'population'
 };
 
 var from = {
@@ -51,6 +52,7 @@ function Firebaseio() {
   this.migration = this.root.child(tables.migratiion);
   this.states = this.root.child(tables.states);
   this.reasons = this.root.child(tables.reasons);
+  this.population = this.root.child(tables.population);
 }
 
 Firebaseio.prototype = {
@@ -124,6 +126,14 @@ Firebaseio.prototype = {
   // read reasons
   getReasons: function (year, cb) {
     this.reasons.child(year).once('value', function (snapshot) {
+      cb(null, snapshot.val());
+    }, function (error) {
+      cb(error, null);
+    });
+  },
+  // populatiob of states
+  getPopulation: function(cb) {
+    this.population.once('value', function (snapshot) {
       cb(null, snapshot.val());
     }, function (error) {
       cb(error, null);
