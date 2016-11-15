@@ -6,7 +6,12 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/logo.png" />
-
+  <!--  Browsers -->
+  <meta name="theme-color" content="#fff" />
+  <!--  Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#fff">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
   <!-- build:css({.tmp,src}) styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -28,6 +33,7 @@
   <inavbar></inavbar>
   <isidebar></isidebar>
   <ui-view></ui-view>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ5NvGs4ZiA7SIu9WPxnP0tKYT1aHlOXo&libraries=visualization"></script>
 </body>
 
 <!-- build:js({.tmp,src}) scripts/vendor.js -->
@@ -41,6 +47,7 @@
 <script src="../bower_components/d3-sankey/sankey/sankey.js"></script>
 <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="../bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+<script src="../bower_components/normalize-strings/normalize.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -50,10 +57,10 @@
 <script src="app/services/d3srv.js"></script>
 <script src="app/services/firebaseio.js"></script>
 <script src="index.js"></script>
-<script src="server.js"></script>
 <script src="templateCacheHtml.js"></script>
 <script src="app/route.js"></script>
 <script src="app/components/flowmap/flowmap.js"></script>
+<script src="app/components/heatmap/heatmap.js"></script>
 <script src="app/components/inavbar/inavbar.js"></script>
 <script src="app/components/iradioslider/iradioslider.js"></script>
 <script src="app/components/sidebar/isidebar.js"></script>

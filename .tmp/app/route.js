@@ -7,7 +7,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false}).hashPrefix('!');
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
+
+  $stateProvider.state({name: 'home',
+    url: '/home',
+    template: '<heatmap></heatmap>'
+  });
 
   $stateProvider.state({name: 'flowmap',
     url: '/flowmap',

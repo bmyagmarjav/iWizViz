@@ -18,9 +18,9 @@
       ContainerSrv.sharedYear = value;
     });
 
-    $scope.reload = function () {
-      $state.reload();
-    };
+    // $scope.reload = function () {
+    //   $state.reload();
+    // };
   }
 
   function generateYears(start, end) {
