@@ -35,6 +35,10 @@
     right: 25px;
     top: 40px;
   }
+  #map {
+    margin-left: 265px;
+    height: 500px;
+  }
 }
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -52,6 +56,7 @@
   }
   #map {
     margin-left: 265px;
+    height: 640px;
   }
 }
 /* Portrait tablets and small desktops */
@@ -97,5 +102,6 @@
   }
   #map {
     margin-left: 10px;
+    height: 560px;
   }
 }
