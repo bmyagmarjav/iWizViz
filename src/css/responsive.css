@@ -37,6 +37,7 @@
   }
   #map {
     margin-left: 265px;
+    margin-right: 10px;
     height: 500px;
   }
 }
@@ -102,6 +103,7 @@
   }
   #map {
     margin-left: 10px;
+    margin-right: 10px;
     height: 500px;
   }
 }
