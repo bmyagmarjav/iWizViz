@@ -50,6 +50,9 @@
     right: 30px;
     bottom: 50px;
   }
+  #map {
+    margin-left: 265px;
+  }
 }
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -91,5 +94,8 @@
     position: absolute;
     right: 30px;
     bottom: 40px;
+  }
+  #map {
+    margin-left: 10px;
   }
 }

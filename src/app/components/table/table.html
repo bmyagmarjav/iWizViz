@@ -3,11 +3,11 @@
     <tr class="top-row">
       <th class="wall"><div class="hcol"></div></th>
       <th><div class="tcol"></div></th>
-      <th><div class="tcol">Northeast</div></th>
+      <th><div class="tcol">Midwest</div></th>
       <th class="wall"><div class="tcol"></div></th>
 
       <th><div class="tcol"></div></th>
-      <th><div class="tcol">Midwest</div></th>
+      <th><div class="tcol">Northeast</div></th>
       <th class="wall" ><div class="tcol"></div></th>
 
       <th><div class="tcol"></div></th>
@@ -21,38 +21,38 @@
     <tr class="bottom-row">
       <th></th>
 
-      <th>Midwest</th>
-      <th>South</th>
-      <th>West</th>
+      <th>NE</th>
+      <th>S</th>
+      <th>W</th>
 
-      <th>Northeast</th>
-      <th>South</th>
-      <th>West</th>
+      <th>MW</th>
+      <th>S</th>
+      <th>W</th>
 
-      <th>Northeast</th>
-      <th>Midwest</th>
-      <th>West</th>
+      <th>MW</th>
+      <th>NE</th>
+      <th>W</th>
 
-      <th>Northeast</th>
-      <th>Midwest</th>
-      <th>South</th>
+      <th>MW</th>
+      <th>NE</th>
+      <th>S</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="type in types">
-      <td>{{type.a}}</td>
-      <td class="wall" ><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
-      <td class="wall"><div class="tcol"></div></td>
+      <td class="colhead">{{type[0]}}</td>
+      <td class="wall" ><div class="tcol">{{type[1]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[2]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[3]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[4]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[5]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[6]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[7]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[8]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[9]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[10]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[11]}}</div></td>
+      <td class="wall"><div class="tcol">{{type[12]}}</div></td>
     </tr>
   </tbody>
 </table>

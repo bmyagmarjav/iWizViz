@@ -7,11 +7,11 @@ table {
 }
 
 .hcol {
-  width: 100px;
+  width: 240px;
 }
 
 .tcol {
-  width: 75px;
+  width: 60px;
 }
 
 tr {
@@ -20,6 +20,7 @@ tr {
 
 th, td {
   /*padding: 0 5px 0 5px;*/
+  font-weight: bold;
   width: 100px;
 }
 
@@ -28,7 +29,7 @@ tr.top-row {
 }
 
 tr.bottom-row {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 tr.top-row, .bottom-row {
@@ -39,10 +40,14 @@ tr.top-row, .bottom-row {
   /*border-right: 1px solid #fff;*/
 }
 
+.colhead {
+  color: #25b7c4;
+  /*background: #25b7c4;*/
+  font-size: 12px;
+}
 
 th {
   text-align: center;
-
   color: #fff;
 }
 
