@@ -81,7 +81,7 @@
         "elementType": "all",
         "stylers": [
           {
-            "color": "#f2f2f2"
+            "color": "#ffffff"
           }
         ]
       },
