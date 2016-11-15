@@ -1,5 +1,6 @@
 
 (function () {
+  'use strict'
   angular
   .module('app')
   .component('heatmap', {
@@ -18,7 +19,7 @@
       disableDoubleClickZoom: true,
       zoomControl: false,
       zoom: 4,
-      maxZoom: 5,
+      maxZoom: 4,
       minZoom: 4,
       draggable: false,
       mapTypeControl: false
@@ -36,33 +37,38 @@
       $window.map.setCenter(center);
     });
 
-    var coordinates = [
-      new google.maps.LatLng(39.77745056152344, -86.10900878906250),
-      new google.maps.LatLng(39.82060623168945, -86.17008972167969),
-      new google.maps.LatLng(39.77947616577148, -86.17008972167969),
-      new google.maps.LatLng(39.82987594604492, -86.13955688476562),
-      new google.maps.LatLng(39.74195098876953, -86.12429046630860)
-    ];
 
-    heatmap = new google.maps.visualization.HeatmapLayer({
-      data: coordinates,
-      map: $window.map,
-      gradient: getGradient(),
-      radius: 30
+    var coordinates = [];
+
+    var Url   = "../../../data/convertcsv.json";
+    $http.get(Url).then(function(response){
+      response.data.forEach(function(val) {
+        var marker = new google.maps.Marker({
+          position: {
+            lat: val.lat,
+            lng: val.long
+          },
+          icon: '../../../img/pin.png',
+          map: $window.map,
+          animation: google.maps.Animation.DROP
+        });
+
+        coordinates.push({
+          location: new google.maps.LatLng(val.lat, val.long),
+          weight: val[2015]
+        });
+      });
+      console.log(coordinates);
+
+
+
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: coordinates,
+        map: $window.map,
+        gradient: getGradient(),
+        radius: 40
+      });
     });
-
-    // var Url   = "../../../data/convertcsv.json";
-    // $http.get(Url).then(function(response){
-    //   response.data.forEach(function(value) {
-    //     if (value.FIELD2 !== 'CITY NAME') {
-    //       var item = $http.get(geo + value.FIELD2).then(function(resp){
-    //         var lng = resp.data.results[0].geometry.location.lng;
-    //         var lat = resp.data.results[0].geometry.location.lat;
-    //         console.log(lng + ", " + lat + ", " + resp.data.results[0].address_components.long_name);
-    //       });
-    //     }
-    //   });
-    // });
   }
 
   function getStyleData() {
@@ -138,7 +144,7 @@
         "elementType": "all",
         "stylers": [
           {
-            "color": "#46bcec"
+            "color": "#70DCDC"
           },
           {
             "visibility": "on"
