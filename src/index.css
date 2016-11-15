@@ -5,6 +5,7 @@ html, body {
   height: 100%;
   background: rgb(240, 243, 244);
   letter-spacing: 3px;
+  overflow: hidden;
 }
 
 .navbar {
@@ -87,7 +88,7 @@ html, body {
   text-decoration: none;
   color: #fff;
   width: 260px;
-  background: #70DCDC;
+  background: -webkit-linear-gradient(left, #70DCDC, #25b7c4);
   box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
 }
 

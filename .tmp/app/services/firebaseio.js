@@ -56,6 +56,14 @@ function Firebaseio() {
 }
 
 Firebaseio.prototype = {
+  // migration
+  getMigration: function(year, cb) {
+    this.migration.child(year).once('value', function (snapshot) {
+      cb(null, snapshot.val());
+    }, function (error) {
+      cb(error, null);
+    });
+  },
   getTotalGains: function (year, cb) {
     this.migration.child(year).once('value', function (snapshot) {
       var west = south = midwest = northeast = 0;

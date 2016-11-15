@@ -19,8 +19,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     template: '<iradioslider></iradioslider><flowmap></flowmap>'
   });
 
-  $stateProvider.state({name: 'starplot',
-    url: '/starplot',
-    template: '<starplot></starplot>'
+  $stateProvider.state({name: 'table',
+    url: '/table',
+    template: '<table></table>'
   });
 }
