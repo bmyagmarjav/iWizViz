@@ -21,6 +21,8 @@
     // $scope.reload = function () {
     //   $state.reload();
     // };
+
+    // $scope.mystyle = {'background-color':'blue'};
   }
 
   function generateYears(start, end) {

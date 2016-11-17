@@ -1,14 +1,14 @@
 <div class="row">
    <div class="col-sm-offset-4 col-sm-7 col-md-offset-3 col-md-8">
       <div class="radios">
-         <label ng-repeat="year in years" for="options{{$index + 1}}">
-            {{year}}
+         <label ng-repeat="year in years" for="options{{$index + 1}}" ng-style="{{mystyle}}">
             <input type="radio"
             ng-model="$ctrl.year"
             ng-value="{{year}}"
             ng-click="reload()"
             id="options{{$index + 1}}"
             name="options">
+            <span>{{year}}</span>
          </label>
       </div>
    </div>

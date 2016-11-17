@@ -7,33 +7,39 @@
   border: 0;
   padding: 0 4px 0 4px;
   box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+  text-align: center;
 }
 
 .radios:hover {
   box-shadow: 3px 4px 6px 0px rgba(46,61,73,0.15);
 }
 
+/*.radios label {
+  margin-left: 2px;
+}*/
+
 .radios input {
   display: none;
-  border: 0;
+  /*border: 0;*/
 }
 
-.radios label {
+.radios span {
   margin-top: 4px;
-  width: 6.25%;
+  /*width: 6.25%;*/
   cursor: pointer;
   display: inline-block;
-  text-align: center;
+  /*text-align: center;*/
   color: rgb(151, 181, 181);
-  padding: 10px 10px 10px 10px;
-  border: 0;
+  padding: 8px 8px 8px 8px;
 }
 
-.radios label:hover {
+.radios input:checked + span {
   color: #fff;
-  background: #70DCDC;
+  background: -webkit-linear-gradient(left, #25b7c2, #70DCDC);
+  width: 100%;
   box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
 }
+
 
 @media (min-width: 1919px) {
   .radios label {
