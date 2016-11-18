@@ -1,0 +1,22 @@
+@media (min-width: 1919px) {
+  .googlemap {
+    margin-left: 265px;
+    height: 900px;
+  }
+}
+/* large desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .googlemap {
+    margin-left: 265px;
+    height: 600px;
+  }
+}
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+}
