@@ -35,11 +35,6 @@
     right: 25px;
     top: 40px;
   }
-  #map {
-    margin-left: 265px;
-    margin-right: 10px;
-    height: 680px;
-  }
 }
 /* Landscape tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -54,10 +49,6 @@
     position: absolute;
     right: 30px;
     bottom: 50px;
-  }
-  #map {
-    margin-left: 265px;
-    height: 640px;
   }
 }
 /* Portrait tablets and small desktops */
@@ -100,10 +91,5 @@
     position: absolute;
     right: 30px;
     bottom: 40px;
-  }
-  #map {
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 500px;
   }
 }

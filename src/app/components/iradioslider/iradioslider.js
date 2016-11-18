@@ -12,7 +12,7 @@
 
   function iradiosliderController($scope, ContainerSrv, $log, $state) {
     $scope.years = generateYears(2000, 2016);
-    this.year = 2001;
+    this.year = 2015;
 
     $scope.$watch('$ctrl.year', function (value) {
       ContainerSrv.sharedYear = value;

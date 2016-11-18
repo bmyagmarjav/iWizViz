@@ -14,6 +14,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     template: '<heatmap></heatmap>'
   });
 
+  $stateProvider.state({name: 'radioslider',
+    url: '/radioslider',
+    template: '<iradioslider></iradioslider>'
+  });
+
   $stateProvider.state({name: 'flowmap',
     url: '/flowmap',
     template: '<iradioslider></iradioslider><flowmap></flowmap>'

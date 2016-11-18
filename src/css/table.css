@@ -1,7 +1,5 @@
 table {
-  margin-top: 2px;
-  margin-left: 265px;
-  width: 200px;
+  margin-left: 15%;
   box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
   background: -webkit-linear-gradient(left, #25b7c4, #70DCDC);
 }
@@ -10,39 +8,17 @@ table {
   width: 240px;
 }
 
-.tcol {
-  width: 60px;
-}
-
 tr {
   height: 35px;
 }
 
 th, td {
-  /*padding: 0 5px 0 5px;*/
   font-weight: bold;
   width: 100px;
 }
 
-tr.top-row {
-  font-size: 16px;
-}
-
-tr.bottom-row {
-  font-size: 12px;
-}
-
-tr.top-row, .bottom-row {
-  /*border-bottom: 1px solid #fff;*/
-}
-
-.wall {
-  /*border-right: 1px solid #fff;*/
-}
-
 .colhead {
   color: #25b7c4;
-  /*background: #25b7c4;*/
   font-size: 12px;
 }
 
@@ -57,12 +33,40 @@ tbody {
   color: rgb(151, 181, 181);
 }
 
-/*::-webkit-scrollbar {
-width: 6px;
+@media (min-width: 1901px) {
+  table {
+    margin-top: 3px;
+    margin-left: 15%;
+    width: 83%;
+  }
+
+  .hcol {
+    width: 320px;
+  }
+
+  tr.top-row {
+    font-size: 22px;
+  }
+
+  tr.bottom-row {
+    font-size: 14px;
+  }
 }
-::-webkit-scrollbar-track {
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+
+@media (min-width: 1200px) and (max-width: 1900px) {
+  table {
+    margin-top: 6px;
+    margin-left: 22%;
+    width: 76%;
+  }
 }
-::-webkit-scrollbar-thumb {
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+  table {
+    margin-left: 28%;
+    width: 72%;
+  }
+}
+
+@media (max-width: 767px) {
+}

@@ -7,9 +7,8 @@
     controller: tableController
   });
 
-  function tableController(Firebaseio, $scope, ContainerSrv) {
+  function tableController(Firebaseio, $scope, ContainerSrv, $state) {
     this.service = ContainerSrv;
-
     Firebaseio.getMigration(this.service.sharedYear, function(error, data) {
       if (error) {
         throw error;
