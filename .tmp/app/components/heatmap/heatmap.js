@@ -19,9 +19,9 @@
       disableDoubleClickZoom: true,
       zoomControl: false,
       zoom: 4,
-      maxZoom: 4,
-      minZoom: 4,
-      draggable: false,
+      maxZoom: 5,
+      minZoom: 3,
+      // draggable: false,
       mapTypeControl: false
     });
 
@@ -63,7 +63,7 @@
         data: coordinates,
         map: $window.map,
         gradient: getGradient(),
-        radius: 40
+        radius: 50
       });
     });
   }

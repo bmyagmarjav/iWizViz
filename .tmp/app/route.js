@@ -15,7 +15,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   });
 
   $stateProvider.state({name: 'migration',
-    url: '/migraion',
+    url: '/migration',
     template: '<iradioslider></iradioslider><flowmap></flowmap>'
   });
 
@@ -31,6 +31,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider.state({name: 'about',
     url: '/about',
-    template: ''
+    template: '<about></about>'
   });
 }
