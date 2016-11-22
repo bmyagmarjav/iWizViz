@@ -9,8 +9,7 @@
 
 ## Color Palette
 
-![Alt text](./Colors.png?raw=true "color palette")
-#### \#172352 | \#D6DDED | \#F1F1F9 | \#B0C5E0 | \#7577A0 | \#F559A9  
+#### \#70DCDC  \#59A0D5 \#D0B3DF \#FAB9C6
 
 ## Prerequisites
 
