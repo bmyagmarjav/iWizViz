@@ -14,18 +14,23 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     template: '<heatmap></heatmap>'
   });
 
-  $stateProvider.state({name: 'radioslider',
-    url: '/radioslider',
-    template: '<iradioslider></iradioslider>'
+  $stateProvider.state({name: 'migration',
+    url: '/migraion',
+    template: '<iradioslider></iradioslider><flowmap></flowmap>'
   });
 
-  $stateProvider.state({name: 'flowmap',
-    url: '/flowmap',
-    template: '<iradioslider></iradioslider><flowmap></flowmap>'
+  $stateProvider.state({name: 'reason',
+    url: '/reason',
+    template: ''
   });
 
   $stateProvider.state({name: 'table',
     url: '/table',
     template: '<iradioslider></iradioslider><table></table>'
+  });
+
+  $stateProvider.state({name: 'about',
+    url: '/about',
+    template: ''
   });
 }
