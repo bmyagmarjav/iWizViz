@@ -39,21 +39,23 @@
 
     // get the total number of array to display bubbles on teh screen
     $scope.$watch('$ctrl.service.sharedYear', function (YEAR) {
+      // remove lines and goes back first state and change color
+      d3flowmap.removeLines(svg);
+      svg.selectAll("circle").style("fill", "rgb(151, 181, 181)");
+
       io.getTotalGains(YEAR, function (error, data) {
         if (error) {
           throw error;
         }
 
-        svg.selectAll("circle").remove();
-        d3flowmap.removeLines(svg);
         // draws the bubbles
         var bubbles = d3flowmap.displayBubbles(svg, data, projection, w);
-        bubbles.transition()
+        // animate the circles - as last state
+        svg.selectAll("circle").transition()
           .duration(2000)
           .attr("r", function (d) {
             return Math.sqrt(d.total) * w / 600;
           });
-
 
         var selected = null;
         // mouse interaction
@@ -90,7 +92,8 @@
             div.html(d.region + ' gain ' + d.total);
           }
           div.style("left", (d3.mouse(this)[0]) + "px")
-            .style("top", (d3.mouse(this)[1]) + "px");
+            .style("top", (d3.mouse(this)[1]) + "px")
+            .style("opacity", 0.5);
         })
         .on("mouseout", function (d) {
           d3flowmap.tooltip.hide(div);
