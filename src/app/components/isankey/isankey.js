@@ -111,17 +111,22 @@
 
 
        var link = svg.append("g").selectAll(".link")
-         .data(test)
+       .data(test)
          .enter().append("path")
          .attr("class", "link")
          .attr("d", path)
          .style("stroke", function (d) {
            return colors1[d.source.name];
          })
-        .style("stroke-width", function(d) {
-          console.log(d.dy);
-          return Math.max(1, d.dy);
-        });
+         .style("stroke-width", function(d) {
+           return 0;
+         });
+
+         link.transition()
+          .duration(2000)
+          .style("stroke-width", function(d) {
+            return Math.max(1, d.dy);
+          });
 
         var node = svg.append("g").selectAll(".node")
           .data(nodes)

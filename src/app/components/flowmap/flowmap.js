@@ -43,17 +43,22 @@
         if (error) {
           throw error;
         }
-        console.log(data[0].total);
+
+        svg.selectAll("circle").remove();
+        d3flowmap.removeLines(svg);
         // draws the bubbles
         var bubbles = d3flowmap.displayBubbles(svg, data, projection, w);
         bubbles.transition()
-          .duration(500)
+          .duration(2000)
           .attr("r", function (d) {
             return Math.sqrt(d.total) * w / 600;
           });
+
+
         var selected = null;
         // mouse interaction
-        bubbles.on("mousedown", function (d) {
+        bubbles
+        .on("mousedown", function (d) {
           // drawing the lines point to point
           d3flowmap.removeLines(svg);
           d3flowmap.tooltip.hide(div);
