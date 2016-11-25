@@ -49,7 +49,7 @@ D3srv.prototype = {
         .enter()
         .append("circle")
         .attr("cx", function (d) {
-          console.log(d);
+        //   console.log(d);
           return projection([d.coordinate.long, d.coordinate.lat])[0];
         })
         .attr("cy", function (d) {

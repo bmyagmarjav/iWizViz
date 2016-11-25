@@ -120,7 +120,7 @@ Firebaseio.prototype = {
         nodes.push({name: key});
         var data = snapshot.val()[from[key]];
         Object.keys(data).forEach(function (region) {
-          links.push(createLink(from[key], region, data[region].Type1.Total));
+          links.push(createLink(from[key], region, parseInt(data[region].Type1.Total)));
         });
       });
       Object.values(from).forEach(function (value) {

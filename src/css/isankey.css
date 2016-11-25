@@ -1,0 +1,12 @@
+.sankey-diagram {
+  height: 530px;
+}
+
+.link {
+  fill: none;
+  stroke: #002;
+  stroke-opacity: .2;
+}
+.link:hover {
+  stroke-opacity: .5;
+}
