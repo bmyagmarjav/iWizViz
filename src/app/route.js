@@ -16,12 +16,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider.state({name: 'migration',
     url: '/migration',
-    template: '<iradioslider></iradioslider><div class="row"><flowmap></flowmap><isankey></isankey></div>'
+    template: '<iradioslider></iradioslider>' +
+      '<div class="row"><flowmap></flowmap><isankey></isankey></div>'
   });
 
   $stateProvider.state({name: 'reason',
     url: '/reason',
-    template: '<iradioslider></iradioslider><istarplot></istarplot>'
+    template: '<iradioslider></iradioslider>' +
+      '<div class="row"><istarplot></istarplot><ibubble><ibubble></div>'
   });
 
   $stateProvider.state({name: 'table',
