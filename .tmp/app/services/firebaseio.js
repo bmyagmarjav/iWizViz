@@ -144,19 +144,18 @@ Firebaseio.prototype = {
         });
       });
 
+      // produce unique nodes
       nodes = d3.keys(d3.nest().key(function (d) { return d.name; }).map(nodes));
-
+      // replace the text with its index from node
       links.forEach(function (d, i) {
         links[i].source = nodes.indexOf(links[i].source);
         links[i].target = nodes.indexOf(links[i].target);
-     });
+      });
+      // array nodes
+      nodes.forEach(function (d, i) {
+        nodes[i] = { "name": d };
+      });
 
-     nodes.forEach(function (d, i) {
-       nodes[i] = { "name": d };
-     });
-
-      console.log(nodes);
-      console.log(links);
       cb(null, nodes, links);
     }, function (error) {
       cb(error, null, null);
