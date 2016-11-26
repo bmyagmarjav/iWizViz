@@ -33,6 +33,20 @@ var to = {
   West: 'West'
 };
 
+var source = {
+  'From Northeast': 0,
+  'From Midwest': 1,
+  'From South': 2,
+  'From West': 3
+};
+
+var target = {
+  'Northeast': 4,
+  ' Midwest': 5,
+  'South': 6,
+  'West': 7
+}
+
 function createLink(s, t, v) {
   return {
     source: s,
@@ -120,12 +134,13 @@ Firebaseio.prototype = {
         nodes.push({name: key});
         var data = snapshot.val()[from[key]];
         Object.keys(data).forEach(function (region) {
-          links.push(createLink(from[key], region, parseInt(data[region].Type1.Total)));
+          links.push(createLink(target[region], source[from[key]], parseInt(data[region].Type1.Total)));
         });
       });
       Object.values(from).forEach(function (value) {
         nodes.push({name: value});
       });
+      console.log(nodes);
       cb(null, nodes, links);
     }, function (error) {
       cb(error, null, null);

@@ -2,5 +2,6 @@ function ContainerSrv() {
 }
 
 ContainerSrv.prototype = {
-  sharedYear: '2015' // by default 2001
+  sharedYear: '2000', // by default 2001
+  selectedRegion: 'None'
 };
