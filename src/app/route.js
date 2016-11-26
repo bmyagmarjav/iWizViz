@@ -21,7 +21,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider.state({name: 'reason',
     url: '/reason',
-    template: ''
+    template: '<iradioslider></iradioslider><istarplot></istarplot>'
   });
 
   $stateProvider.state({name: 'table',
