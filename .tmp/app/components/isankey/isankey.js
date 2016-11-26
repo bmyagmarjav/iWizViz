@@ -13,7 +13,7 @@
     "From South": "#D0B3DF",
     "From Northeast": "#FAB9C6",
     "West": "#70DCDC",
-    "Midwest": "#59A0D5",
+    " Midwest": "#59A0D5",
     "South": "#D0B3DF",
     "Northeast": "#FAB9C6"
   };
@@ -33,7 +33,7 @@
     var graph = d3.sankey().nodeWidth(15).nodePadding(15).size([w, h]);
     var path = graph.link();
 
-    io.getNodesAndLinks('2015',function(error,nodes,links){
+    io.getNodesAndLinks('2000',function(error,nodes,links){
       if (error) {
         throw error;
       }
@@ -53,7 +53,6 @@
       link.transition()
         .duration(2000)
         .style("stroke-width", function(d) {
-          console.log(d);
           return Math.max(1, d.dy);
         });
 
@@ -64,13 +63,12 @@
         .attr("transform", function(d) {
           return "translate(" + d.x + "," + d.y + ")"; });
 
-          node.append("rect")
-          .attr("height", function(d) { return d.dy; })
-          .attr("width", graph.nodeWidth())
-          .style("fill", function(d){
-            return colors[d.name];
-          })
+      node.append("rect")
+        .attr("height", function(d) { return d.dy; })
+        .attr("width", graph.nodeWidth())
+        .style("fill", function(d){
+          return colors[d.name];
         });
-
-    }
-  })();
+    });
+  }
+})();

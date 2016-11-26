@@ -34,17 +34,17 @@ var to = {
 };
 
 var source = {
-  'From Northeast': 0,
-  'From Midwest': 1,
-  'From South': 2,
-  'From West': 3
+  'From West': 1,
+  'From Northeast': 3,
+  'From Midwest': 0,
+  'From South': 2
 };
 
 var target = {
-  'Northeast': 4,
-  ' Midwest': 5,
-  'South': 6,
-  'West': 7
+  'West': 7,
+  'Northeast': 5,
+  ' Midwest': 4,
+  'South': 6
 }
 
 function createLink(s, t, v) {
@@ -127,20 +127,36 @@ Firebaseio.prototype = {
   // read migration
   getNodesAndLinks: function (year, cb) {
     this.migration.child(year).once('value', function (snapshot) {
-      var nodes = [];
-      var links = [];
+      var nodes = []; //global variables
+      var links = []; //global variables - supported by d3
+      var data = snapshot.val();
+      // console.log(data);
 
-      Object.keys(from).forEach(function (key) {
-        nodes.push({name: key});
-        var data = snapshot.val()[from[key]];
-        Object.keys(data).forEach(function (region) {
-          links.push(createLink(target[region], source[from[key]], parseInt(data[region].Type1.Total)));
+      Object.keys(data).forEach(function (from) {
+        Object.keys(data[from]).forEach(function (to) {
+          nodes.push({ "name": from });
+          nodes.push({ "name": to });
+          links.push({
+            "source": from,
+            "target": to,
+            "value": +data[from][to].Type1.Total
+          });
         });
       });
-      Object.values(from).forEach(function (value) {
-        nodes.push({name: value});
-      });
+
+      nodes = d3.keys(d3.nest().key(function (d) { return d.name; }).map(nodes));
+
+      links.forEach(function (d, i) {
+        links[i].source = nodes.indexOf(links[i].source);
+        links[i].target = nodes.indexOf(links[i].target);
+     });
+
+     nodes.forEach(function (d, i) {
+       nodes[i] = { "name": d };
+     });
+
       console.log(nodes);
+      console.log(links);
       cb(null, nodes, links);
     }, function (error) {
       cb(error, null, null);
