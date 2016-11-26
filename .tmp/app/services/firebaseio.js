@@ -131,19 +131,7 @@ Firebaseio.prototype = {
       var links = []; //global variables - supported by d3
       var data = snapshot.val();
       // console.log(data);
-
-      Object.keys(data).forEach(function (from) {
-        Object.keys(data[from]).forEach(function (to) {
-          nodes.push({ "name": from });
-          nodes.push({ "name": to });
-          links.push({
-            "source": from,
-            "target": to,
-            "value": +data[from][to].Type1.Total
-          });
-        });
-      });
-
+      produceLinksAndNodes(data, nodes, links, "Marital Status");
       // produce unique nodes
       nodes = d3.keys(d3.nest().key(function (d) { return d.name; }).map(nodes));
       // replace the text with its index from node
@@ -226,4 +214,84 @@ function set(n, m, s, w, arr) {
 // get object which contains total number of each states migration
 function get() {
   return this.value;
+}
+
+function produceLinksAndNodes(data, nodes, links, demogr) {
+  if (demogr === null) {
+    produceDefault(data, nodes, links);
+  } else {
+    produceByDemography(data, nodes, links, demogr);
+  }
+}
+
+function produceDefault(data, nodes, links) {
+  Object.keys(data).forEach(function (from) {
+    Object.keys(data[from]).forEach(function (to) {
+      nodes.push({ "name": from });
+      nodes.push({ "name": to });
+      links.push({
+        "source": from,
+        "target": to,
+        "value": +data[from][to].Type1.Total
+      });
+    });
+  });
+}
+
+function produceByDemography(data, nodes, links, demogr) {
+  //from region to 10 different age cateories
+  Object.keys(data).forEach(function (from) {
+    var ages = {};
+    Object.keys(data[from]).forEach(function (to) {
+      Object.keys(data[from][to].Type1[demogr]).forEach(function (i) {
+        var age = data[from][to].Type1[demogr][i];
+        if (!(i in ages)) {
+          ages[i] = 0;
+        }
+        if (age !== "." && age !== "-") {
+          ages[i] += +data[from][to].Type1[demogr][i];
+        }
+      });
+    });
+    // console.log(ages);
+    Object.keys(ages).forEach(function (to) {
+      nodes.push({ "name": from });
+      nodes.push({ "name": to });
+      links.push({
+        "source": from,
+        "target": to,
+        "value": ages[to]
+      });
+    });
+  });
+
+  var regions = ["Northeast", "South", " Midwest", "West"];
+  regions.forEach(function (r) {
+    var ages = {};
+    Object.keys(data).forEach(function (from) {
+      Object.keys(data[from]).forEach(function (to) {
+        if (r === to) {
+          Object.keys(data[from][to].Type1[demogr]).forEach(function (i) {
+            var age = data[from][to].Type1[demogr][i];
+            if (!(i in ages)) {
+              ages[i] = 0;
+            }
+            if (age !== "." && age !== "-") {
+              ages[i] += +data[from][to].Type1[demogr][i];
+            }
+          });
+        }
+      });
+    });
+    // console.log(ages);
+    Object.keys(ages).forEach(function (from) {
+      nodes.push({ "name": from });
+      nodes.push({ "name": r });
+      links.push({
+        "source": from,
+        "target": r,
+        "value": ages[from]
+      });
+    });
+  });
 }
