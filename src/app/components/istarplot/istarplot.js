@@ -1,4 +1,5 @@
 (function () {
+  'use strict';
   angular
   .module('app')
   .component('istarplot', {
@@ -23,7 +24,7 @@
       var h = elm.clientHeight;
       var customColor = d3.scale.linear().domain([1,length])
         .interpolate(d3.interpolateHcl)
-        .range([d3.rgb("#70DCDC"), d3.rgb(251, 144, 51)]);
+        .range([d3.rgb(251, 144, 51), d3.rgb("#70DCDC")]);
 
       var config = {
         w: w,
