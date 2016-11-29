@@ -158,11 +158,11 @@ html, body {
 .flowmap-tooltip {
   position: absolute;
   z-index: 1;
-  text-align: center;
+  /*text-align: center;*/
   width: 240px;
-  height: 40px;
-  padding: 10px 10px 0 0;
-  font: 12px;
+  height: 55px;
+  padding: 10px 10px 10px 10px;
+  font-size: 12px;
   font-weight: bold;
   background: #fff;
   font-family: 'Comfortaa';
