@@ -117,7 +117,7 @@ D3srv.prototype = {
     // Define the div for the tooltip
     getTooltip: function () {
       return d3.select(".flowmap").append("div")
-        .attr("class", "flowmap-tooltip")
+        .attr("class", "tooltip")
         .style("opacity", 0);
     },
     tooltip: {
@@ -125,7 +125,7 @@ D3srv.prototype = {
         div.transition().duration(500).style("opacity", 0);
       },
       show: function (div) {
-        div.transition().duration(500).style("opacity", 1);
+        div.transition().duration(500).style("opacity", 0.8);
       }
     }
   }

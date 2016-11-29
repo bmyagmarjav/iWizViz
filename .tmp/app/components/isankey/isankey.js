@@ -50,9 +50,12 @@
     var graph = d3.sankey().nodeWidth(15).nodePadding(15).size([w, h]);
     var path = graph.link();
 
+    var tooltip = d3.select(".sankey-diagram").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
     this.service = ContainerSrv;
 
-    var ref = null;
     $scope.$watchGroup(['$ctrl.service.sharedYear', 'data.selectedOption'], function (it) {
       var YEAR = it[0];
       // console.log(it[1]);
@@ -65,7 +68,6 @@
       // svg.selectAll("rect").transition()
       //     .duration(1000)
       //     .attr("width", 0);
-
       svg.selectAll("rect").remove();
       io.getNodesAndLinks(YEAR, it[1].name, it[1].type, function(error, nodes, links){
         if (error) {
@@ -112,95 +114,24 @@
               return "rgb(251, 144, 51)";
             }
             return colors[d.name];
-          })
+          });
 
         rect.transition()
           .duration(2000)
           .attr("width", graph.nodeWidth());
+
+        link
+        .on("mouseover", function(d){
+          tooltip.transition().duration(500).style("opacity", 0.9);
+          tooltip.html(d["value"] + ",000 people migrated " + "<br/>"
+            + d["source"].name.toLowerCase() + " to " + d["target"].name.toLowerCase())
+            .style("top", (event.pageY-10) - 150 + "px")
+            .style("left", (event.pageX+10) - 950 + "px")
+        })
+        .on("mouseout", function (d) {
+          tooltip.transition().duration(500).style("opacity", 0);
+        });
       });
     });
-  }
-
-  function balance(mnode, graph) {
-    if(mnode.length>10){
-    var current=0;
-    var second=0;
-    var third=0;
-
-    for(var i=mnode.length-7;i<mnode.length-4;++i){
-      if(mnode[current].y>mnode[i].y){
-        third=second;
-        second=current;
-        current=i;
-      }
-      else if(mnode[second].y>mnode[i].y){
-        third=second;
-        second=i;
-      }
-      else if(mnode[third].y>mnode[i].y){
-        third=i;
-      }
-    }
-
-    var ecurrent=mnode.length-4;
-    var esecond=mnode.length-4;
-    var ethird=mnode.length-4;
-
-    for(var i=mnode.length-3;i<mnode.length;++i){
-      if(mnode[ecurrent].y>mnode[i].y){
-        ethird=esecond;
-        esecond=ecurrent;
-        ecurrent=i;
-      }
-      else if(mnode[esecond].y>mnode[i].y){
-        ethird=esecond;
-        esecond=i;
-      }
-      else if(mnode[ethird].y>mnode[i].y){
-        ethird=i;
-      }
-    }
-    //
-    // console.log(mnode);
-    // console.log(ecurrent);
-    // console.log(esecond);
-    // console.log(ethird);
-
-    var top=0.0;
-    var amount=mnode[current].y-top;
-    // console.log(anode)
-    move(mnode[second],2, amount, graph);
-    move(mnode[third],3, amount, graph);
-    move(mnode[current],1, amount, graph);
-
-    move(mnode[esecond],2, amount, graph);
-    move(mnode[ethird],3, amount, graph);
-    move(mnode[ecurrent],1, amount, graph);
-  }
-  else if(mnode.length>8){
-    current=1;
-    var top=0.0;
-    var amount=mnode[current].y-top;
-      move(mnode[current],1, amount, graph);
-  }
-  }
-
-  function move(node, val,amount, graph) {
-    if(val==1){
-      d3.select(this).attr("transform", "translate(" + (node.x =node.x)
-      + "," + (
-        node.y =node.y-amount
-      ) + ")");
-    }
-    else{
-      d3.select(this).attr("transform",
-      "translate(" + (
-        node.x =node.x
-      )
-      + "," + (
-        node.y =node.y-amount+(15*val)
-      ) + ")");
-    }
-    graph.relayout();
   }
 })();
