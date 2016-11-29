@@ -15,18 +15,16 @@
 .demogr-form {
   text-align: center;
   color: rgb(151, 181, 181);
+  border-radius: 0;
 }
 
 .demogr-select {
   border: none;
-  box-shadow: 3px 4px 6px 0px rgba(46,61,73,0.15);
+  /*border-radius: 0;*/
+  /*box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);*/
   background: #F9FCFE;
   outline: none;
   border: none;
-}
-
-.demogr-select option {
-  background: #F9FCFE;
 }
 
 @media (min-width: 1919px) {

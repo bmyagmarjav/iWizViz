@@ -158,7 +158,7 @@ html, body {
 .flowmap-tooltip {
   position: absolute;
   z-index: 1;
-  /*text-align: center;*/
+  text-align: center;
   width: 240px;
   height: 55px;
   padding: 10px 10px 10px 10px;

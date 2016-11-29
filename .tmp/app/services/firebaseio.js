@@ -149,10 +149,31 @@ Firebaseio.prototype = {
       cb(error, null, null);
     });
   },
-  // read reasons
-  getReasons: function (year, cb) {
+  // read reasons and process bubble data
+  getDataForBubbleGraph: function (year, demogr, cb) {
     this.reasons.child(year).once('value', function (snapshot) {
-      cb(null, snapshot.val());
+      var data = [];
+      var i = 0;
+      var reason = snapshot.val();
+      if (demogr === "Default") {
+        Object.keys(reason).forEach(function(key){
+          console.log(reason[key]["Total"]);
+          data.push({
+            index: i++,
+            value: reason[key]["Total"]
+          });
+        });
+      } else {
+        Object.keys(reason).forEach(function(key){
+          Object.values(reason[key][demogr]).forEach(function(val) {
+            data.push({
+              index: i++,
+              value: val
+            });
+          });
+        });
+      }
+      cb(null, data);
     }, function (error) {
       cb(error, null);
     });

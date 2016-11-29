@@ -11,18 +11,17 @@
   });
 
   function iradiosliderController($scope, ContainerSrv, $log, $state) {
-    $scope.years = generateYears(2000, 2016);
-    this.year = 2000;
+    var y = 2000;
+    if ($state.current.name === "reason") {
+      y = 2001;
+    }
+
+    $scope.years = generateYears(y, 2016);
+    this.year = y;
 
     $scope.$watch('$ctrl.year', function (value) {
       ContainerSrv.sharedYear = value;
     });
-
-    // $scope.reload = function () {
-    //   $state.reload();
-    // };
-
-    // $scope.mystyle = {'background-color':'blue'};
   }
 
   function generateYears(start, end) {

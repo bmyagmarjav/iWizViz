@@ -1,6 +1,13 @@
 <div class="col-md-6 animated fadeInRightBig">
+  <h1 class="year-label">{{$ctrl.service.sharedYear}}</h1>
   <div class="ibubble card">
     <h5 class="graph-header">Reasons by Demographic</h5>
     <i class="fa fa-magic fa-lg graph-icon" aria-hidden="true"></i>
+    <form class="demogr-form" name="bubble-form">
+      <label class="demogr-label" for="bubble-select">Choose:</label>
+      <select class="demogr-select" name="bubble-select" id="bubble-select"
+      ng-options="option.name for option in data.availableOptions track by option.id"
+      ng-model="data.selectedOption"></select>
+    </form>
   </div>
 </div>

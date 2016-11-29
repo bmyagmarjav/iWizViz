@@ -1,3 +1,9 @@
 .ibubble {
   height: 540px;
 }
+
+.year-label {
+  font-size: 30px;
+  right: 25px;
+  top: 40px;
+}
