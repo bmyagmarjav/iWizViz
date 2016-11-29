@@ -125,13 +125,13 @@ Firebaseio.prototype = {
     });
   },
   // read migration
-  getNodesAndLinks: function (year, cb) {
+  getNodesAndLinks: function (year, demogr, type, cb) {
     this.migration.child(year).once('value', function (snapshot) {
       var nodes = []; //global variables
       var links = []; //global variables - supported by d3
       var data = snapshot.val();
       // console.log(data);
-      produceLinksAndNodes(data, nodes, links, "Marital Status");
+      produceLinksAndNodes(data, nodes, links, demogr, type);
       // produce unique nodes
       nodes = d3.keys(d3.nest().key(function (d) { return d.name; }).map(nodes));
       // replace the text with its index from node
@@ -216,11 +216,11 @@ function get() {
   return this.value;
 }
 
-function produceLinksAndNodes(data, nodes, links, demogr) {
-  if (demogr === null) {
+function produceLinksAndNodes(data, nodes, links, demogr, type) {
+  if (demogr === "Default") {
     produceDefault(data, nodes, links);
   } else {
-    produceByDemography(data, nodes, links, demogr);
+    produceByDemography(data, nodes, links, demogr, type);
   }
 }
 
@@ -238,18 +238,18 @@ function produceDefault(data, nodes, links) {
   });
 }
 
-function produceByDemography(data, nodes, links, demogr) {
+function produceByDemography(data, nodes, links, demogr, type) {
   //from region to 10 different age cateories
   Object.keys(data).forEach(function (from) {
     var ages = {};
     Object.keys(data[from]).forEach(function (to) {
-      Object.keys(data[from][to].Type1[demogr]).forEach(function (i) {
-        var age = data[from][to].Type1[demogr][i];
+      Object.keys(data[from][to][type][demogr]).forEach(function (i) {
+        var age = data[from][to][type][demogr][i];
         if (!(i in ages)) {
           ages[i] = 0;
         }
         if (age !== "." && age !== "-") {
-          ages[i] += +data[from][to].Type1[demogr][i];
+          ages[i] += +data[from][to][type][demogr][i];
         }
       });
     });
@@ -271,13 +271,13 @@ function produceByDemography(data, nodes, links, demogr) {
     Object.keys(data).forEach(function (from) {
       Object.keys(data[from]).forEach(function (to) {
         if (r === to) {
-          Object.keys(data[from][to].Type1[demogr]).forEach(function (i) {
-            var age = data[from][to].Type1[demogr][i];
+          Object.keys(data[from][to][type][demogr]).forEach(function (i) {
+            var age = data[from][to][type][demogr][i];
             if (!(i in ages)) {
               ages[i] = 0;
             }
             if (age !== "." && age !== "-") {
-              ages[i] += +data[from][to].Type1[demogr][i];
+              ages[i] += +data[from][to][type][demogr][i];
             }
           });
         }
