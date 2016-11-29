@@ -87,13 +87,13 @@
         .on('mouseover', function (d) {
           d3flowmap.tooltip.show(div);
           if (selected !== null && d.region !== selected.region) {
-            div.html(d.region + ' lost ' + selected[d.region]);
+            div.html(d.region + ' decreased by </br> ' + selected[d.region] + ",000 people");
           } else {
-            div.html(d.region + ' gain ' + d.total);
+            div.html(d.region + ' increased by </br> ' + d.total + ",000 people");
           }
-          div.style("left", (d3.mouse(this)[0]) + "px")
+          div.style("left", (d3.mouse(this)[0]) - 200 + "px")
             .style("top", (d3.mouse(this)[1]) + "px")
-            .style("opacity", 0.5);
+            .style("opacity", 0.4);
         })
         .on("mouseout", function (d) {
           d3flowmap.tooltip.hide(div);
