@@ -33,7 +33,7 @@
     selectedOption: {id: '1', name: 'Default'}
   };
 
-  function isankeyController(Firebaseio, ContainerSrv, $window, $scope) {
+  function isankeyController(Firebaseio, ContainerSrv, $window, $scope, $rootScope) {
     $scope.data = options;
 
     var io = Firebaseio;
@@ -43,7 +43,7 @@
 
     var svg = d3.select(".sankey-diagram").append("svg")
       .attr("width", w + 35)
-      .attr("height", h + 400)
+      .attr("height", h + 50)
       .append("g")
       .attr("transform", "translate(" + 20 + "," + 15 + ")");
 
@@ -120,16 +120,39 @@
           .duration(2000)
           .attr("width", graph.nodeWidth());
 
-        link
-        .on("mouseover", function(d){
-          tooltip.transition().duration(500).style("opacity", 0.9);
-          tooltip.html(d["value"] + ",000 people migrated " + "<br/>"
-            + d["source"].name.toLowerCase() + " to " + d["target"].name.toLowerCase())
-            .style("top", (event.pageY-10) - 150 + "px")
-            .style("left", (event.pageX+10) - 950 + "px")
-        })
-        .on("mouseout", function (d) {
-          tooltip.transition().duration(500).style("opacity", 0);
+        link.on("mouseover", function(d){
+            tooltip.transition().duration(500).style("opacity", 0.9);
+            tooltip.html(d["value"] + ",000 people migrated " + "<br/>"
+              + d["source"].name.toLowerCase() + " to " + d["target"].name.toLowerCase())
+              .style("top", (event.pageY-10) - 150 + "px")
+              .style("left", (event.pageX+10) - 950 + "px")
+          })
+          .on("mouseout", function (d) {
+            tooltip.transition().duration(500).style("opacity", 0);
+          });
+
+        // selected and will be highlighted
+        $rootScope.$on('region', function(event, region) {
+          link.transition()
+            .duration(2000)
+            .style("stroke", function(d) {
+              if (d.source.name.substring(5).toLowerCase() === region.toLowerCase()) {
+                return "#DE1C5C";
+              }
+              var mw = ""
+              if (d.target.name.toLowerCase() === " midwest") {
+                mw = "midwest";
+              }
+              if (it[1].name !== "Default" &&
+                (d.target.name.toLowerCase() === region.toLowerCase() || mw === region.toLowerCase())) {
+                return "#23CF5F";
+              }
+              return "rgb(151, 181, 181)";
+            });
+        });
+
+        $scope.$watch('data.selectedOption', function (update) {
+          $rootScope.$broadcast('demographic:changed', true);
         });
       });
     });

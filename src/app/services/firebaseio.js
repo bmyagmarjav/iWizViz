@@ -149,6 +149,14 @@ Firebaseio.prototype = {
       cb(error, null, null);
     });
   },
+  // read reasons
+  getReasons: function(year, cb) {
+    this.reasons.child(year).once('value', function (snapshot) {
+      cb(null, snapshot.val());
+    }, function (error) {
+      cb(error, null);
+    });
+  },
   // read reasons and process bubble data
   getDataForBubbleGraph: function (year, demogr, cb) {
     this.reasons.child(year).once('value', function (snapshot) {

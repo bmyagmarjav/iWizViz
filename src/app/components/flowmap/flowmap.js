@@ -3,14 +3,11 @@
   angular
   .module('app')
   .component('flowmap', {
-    bindings: {
-      year: '<'
-    },
     templateUrl: 'app/components/flowmap/flowmap.html',
     controller: flowmapController
   });
 
-  function flowmapController(D3srv, Firebaseio, ContainerSrv, $scope) {
+  function flowmapController(D3srv, Firebaseio, ContainerSrv, $scope, $rootScope) {
     var d3flowmap = D3srv.flowmap;
     var io = Firebaseio;
     var elm = angular.element(document.querySelector(".flowmap"))[0];
@@ -22,8 +19,6 @@
     var svg = d3flowmap.getSVG('.flowmap', w, h);
 
     this.service = ContainerSrv;
-
-    this.year = ContainerSrv.sharedYear;
     // console.log(ContainerSrv.sharedYear);
     // Define the div for the tooltip
     var div = d3flowmap.getTooltip();
@@ -82,7 +77,8 @@
             })
             .style("opacity", 0.8);
           selected = d;
-          // console.log(data[0]);
+
+          $rootScope.$broadcast('region', d.region);
         })
         .on('mouseover', function (d) {
           d3flowmap.tooltip.show(div);
@@ -97,6 +93,17 @@
         })
         .on("mouseout", function (d) {
           d3flowmap.tooltip.hide(div);
+        });
+
+        // linked
+        $rootScope.$on('demographic:changed', function(event, bool) {
+          d3flowmap.removeLines(svg);
+          svg.selectAll("circle").style("fill", "rgb(151, 181, 181)");
+          svg.selectAll("circle").transition()
+            .duration(2000)
+            .attr("r", function (d) {
+              return Math.sqrt(d.total) * w / 600;
+            });
         });
       });
     });
