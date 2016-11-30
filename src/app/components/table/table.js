@@ -7,20 +7,22 @@
     controller: tableController
   });
 
-  function tableController(Firebaseio, $scope, ContainerSrv, $state) {
+  function tableController(Firebaseio, $scope, ContainerSrv, $state, $rootScope) {
     this.service = ContainerSrv;
-    Firebaseio.getMigration(this.service.sharedYear, function(error, data) {
-      if (error) {
-        throw error;
-      }
-      var table = [];
-      Object.keys(data['From West']['South'].Type1).forEach(function(key) {
-        // console.log(key);
-        if (key !== 'Total') {
-          table = update(table, data, 'From Northeast', ' Midwest', key);
+    $scope.$watch('$ctrl.service.sharedYear', function (YEAR) {
+      Firebaseio.getMigration(YEAR, function(error, data) {
+        if (error) {
+          throw error;
         }
+        var table = [];
+        Object.keys(data['From West']['South'].Type1).forEach(function(key) {
+          // console.log(key);
+          if (key !== 'Total') {
+            table = update(table, data, 'From Northeast', ' Midwest', key);
+          }
+        });
+        $scope.types = table;
       });
-      $scope.types = table;
     });
   }
 
