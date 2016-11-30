@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Coiny);
+
 @media (min-width: 1919px) {
   .googlemap {
     margin-left: 265px;
@@ -6,9 +8,15 @@
 }
 /* large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1919px) {
+  .home-head-title {
+    font-size: 26px;
+  }
   .googlemap {
     margin-left: 265px;
     height: 400px;
+  }
+  .heatmap-detail {
+    font-size: 14px;
   }
 }
 /* Landscape tablets and medium desktops */

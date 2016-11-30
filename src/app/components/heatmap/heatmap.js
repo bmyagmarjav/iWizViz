@@ -18,7 +18,7 @@
       },
       disableDoubleClickZoom: true,
       zoomControl: false,
-      zoom: 4,
+      zoom: 5,
       maxZoom: 5,
       minZoom: 3,
       // draggable: false,
