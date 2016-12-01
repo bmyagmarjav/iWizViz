@@ -186,10 +186,60 @@ Firebaseio.prototype = {
       cb(error, null);
     });
   },
-  // populatiob of states
+  // population of states
   getPopulation: function(cb) {
     this.population.once('value', function (snapshot) {
-      cb(null, snapshot.val());
+      Object.keys(data).forEach(function (from) {
+        var ages = {};
+        Object.keys(data[from]).forEach(function (to) {
+          Object.keys(data[from][to][type][demogr]).forEach(function (i) {
+            var age = data[from][to][type][demogr][i];
+            if (!(i in ages)) {
+              ages[i] = 0;
+            }
+            if (age !== "." && age !== "-") {
+              ages[i] += +data[from][to][type][demogr][i];
+            }
+          });
+        });
+      });
+    }, function (error) {
+      cb(error, null);
+    });
+  },
+  getBarchartData: function(year, cb) {
+    this.migration.child(year).once('value', function (snapshot) {
+      var data = [];
+      var obj = snapshot.val();
+      var each = {};
+      Object.keys(obj).forEach(function (from) {
+        var loss = 0;
+        Object.keys(obj[from]).forEach(function (to) {
+          loss += +obj[from][to].Type1.Total;
+        });
+        data.push({region: from.substring(5), loss: loss, gain: 0});
+      });
+
+      Object.keys(obj).forEach(function (reg) {
+        var gain = 0;
+        Object.keys(obj).forEach(function (from) {
+          Object.keys(obj[from]).forEach(function (to) {
+            var md = ""
+            if (to === " Midwest") {
+              md = "Midwest"
+            }
+            if (reg.substring(5) === to || reg.substring(5) === md) {
+              gain += +obj[from][to].Type1.Total;
+            }
+          });
+        });
+        data.forEach(function (o){
+          if (o.region === reg.substring(5)) {
+            o.gain = gain;
+          }
+        });
+      });
+      cb(null, data);
     }, function (error) {
       cb(error, null);
     });

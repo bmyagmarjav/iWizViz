@@ -1,10 +1,10 @@
 .link {
   fill: none;
   stroke: #002;
-  stroke-opacity: .2;
+  stroke-opacity: .4;
 }
 .link:hover {
-  stroke-opacity: .5;
+  stroke-opacity: 0.7;
 }
 
 .demogr-label {
@@ -35,7 +35,7 @@
 /* large desktops and laptops */
 @media (min-width: 1200px) and (max-width: 1919px) {
   .sankey-diagram {
-    height: 540px;
+    height: 570px;
   }
 
 }
