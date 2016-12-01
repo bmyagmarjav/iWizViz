@@ -189,20 +189,7 @@ Firebaseio.prototype = {
   // population of states
   getPopulation: function(cb) {
     this.population.once('value', function (snapshot) {
-      Object.keys(data).forEach(function (from) {
-        var ages = {};
-        Object.keys(data[from]).forEach(function (to) {
-          Object.keys(data[from][to][type][demogr]).forEach(function (i) {
-            var age = data[from][to][type][demogr][i];
-            if (!(i in ages)) {
-              ages[i] = 0;
-            }
-            if (age !== "." && age !== "-") {
-              ages[i] += +data[from][to][type][demogr][i];
-            }
-          });
-        });
-      });
+      cb(null, snapshot.val());
     }, function (error) {
       cb(error, null);
     });
