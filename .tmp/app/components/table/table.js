@@ -9,6 +9,19 @@
 
   function tableController(Firebaseio, $scope, ContainerSrv, $state, $rootScope) {
     this.service = ContainerSrv;
+
+    swal({
+      title: 'Thank You!',
+      text: 'If you dont see the table body, choose your year!',
+      imageUrl: '../../../img/logo.png',
+      imageWidth: 100,
+      imageHeight: 120,
+      width: 400,
+      // animation: false,
+      confirmButtonColor: '#25b7c4',
+      imageClass: 'animated swing'
+    });
+
     $scope.$watch('$ctrl.service.sharedYear', function (YEAR) {
       Firebaseio.getMigration(YEAR, function(error, data) {
         if (error) {
