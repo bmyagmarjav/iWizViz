@@ -165,16 +165,19 @@ Firebaseio.prototype = {
       var reason = snapshot.val();
       if (demogr === "Default") {
         Object.keys(reason).forEach(function(key){
-          console.log(reason[key]["Total"]);
+        //   console.log(reason[key]["Total"]);
           data.push({
+            reason: key,
             index: i++,
             value: reason[key]["Total"]
           });
         });
       } else {
         Object.keys(reason).forEach(function(key){
+          console.log(key);
           Object.values(reason[key][demogr]).forEach(function(val) {
             data.push({
+              reason: key,
               index: i++,
               value: val
             });

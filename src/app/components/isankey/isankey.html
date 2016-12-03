@@ -1,14 +1,20 @@
 <div class="col-md-4 animated fadeInRightBig">
   <div class="sankey-diagram card">
-    <h5 class="graph-header">Demographic</h5>
-    <i class="fa fa-magic fa-lg graph-icon" aria-hidden="true"></i>
+    <h5 class="graph-header">By Demographic</h5>
+    <i class="fa fa-magic fa-lg graph-icon" aria-hidden="true">
+      <span class="tooltiptext">
+         <b>Intsruction</b></br></br>
+         You can hover over each link which will show how many people migrated
+         between regions based on <b>census</b> data. You can also choose your
+         demograophic to see more information.
+      </span>
+    </i>
     <form class="demogr-form" name="sankey-form">
-      <label class="demogr-label" for="sankey-select">Choose:</label>
+      <label class="demogr-label" for="sankey-select">SELECT</label>
       <select class="demogr-select" name="sankey-select" id="sankey-select"
         ng-options="option.name for option in data.availableOptions track by option.id"
         ng-model="data.selectedOption"></select>
     </form>
   </div>
   <div style="visibility: hidden">{{$ctrl.service.sharedYear}}</div>
-  <div style="visibility: hidden">{{$ctrl.service.selectedRegion}}</div>
 </div>

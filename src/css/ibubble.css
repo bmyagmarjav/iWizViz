@@ -1,9 +1,44 @@
 .ibubble {
-  height: 540px;
+  height: 560px;
 }
 
 .year-label {
   font-size: 30px;
   right: 25px;
   top: 40px;
+}
+
+.bubble-panel {
+  height: 560px;
+}
+
+.delay2s {
+  animation-delay: 0.5s;
+}
+
+.each {
+  margin-left: 5%;
+}
+
+.circle-identifier {
+  float: left;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  box-shadow: 8px 10px 20px 0px rgba(46,61,73,0.15);
+}
+
+.re {
+  float: left;
+  margin-left: 5%;
+  font-size: 14px;
+  width: 80%;
+  color: rgb(151, 181, 181);
+}
+
+.tooltip.tbubble {
+  height: 40px;
+  font-size: 16px;
+  letter-spacing: 3px;
 }

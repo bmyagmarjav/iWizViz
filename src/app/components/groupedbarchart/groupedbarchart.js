@@ -13,7 +13,7 @@
     var w = elm.clientWidth;
     var h = elm.clientHeight;
 
-    var margin = {top: 165, right: 10, bottom: 25, left: 50},
+    var margin = {top: 165, right: 10, bottom: 25, left: 60},
     width = w - margin.left - margin.right,
     height = h - margin.top - margin.bottom;
 
@@ -31,7 +31,7 @@
     .orient("left")
     .tickFormat(function(d) {
       if (d % 500 === 0) {
-        return d;
+        return d + "k";
       }
     });
 
@@ -40,6 +40,10 @@
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var tooltip = d3.select(".gbarchart").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
     $scope.$watch('$ctrl.service.sharedYear', function (YEAR) {
       svg.selectAll(".region").remove();
@@ -108,7 +112,24 @@
         region.selectAll("rect")
           .transition()
           .duration(2000)
-          .attr("width", x1.rangeBand() - 1)
+          .attr("width", x1.rangeBand() - 1);
+
+        region.selectAll("rect")
+          .on("mouseover", function(d){
+            var msg = "In total of " + d.value + ",000 people ";
+            if (d.name === "loss") {
+              msg += "left from this region"
+            } else {
+              msg += "moved into this region"
+            }
+            tooltip.transition().duration(500).style("opacity", 0.9);
+            tooltip.html(msg)
+            .style("top", (event.pageY-10) - 750 + "px")
+            .style("left", (event.pageX+10) - 400 + "px");
+          })
+          .on("mouseout", function (d) {
+            tooltip.transition().duration(500).style("opacity", 0);
+          });
 
         $rootScope.$on('region', function(event, region) {
             svg.selectAll("rect")

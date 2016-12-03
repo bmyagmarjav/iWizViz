@@ -150,13 +150,39 @@ html, body {
   top: 25px;
 }
 
+.graph-icon .tooltiptext {
+    visibility: hidden;
+    background-color: #F9FCFE;
+    color: rgb(151, 181, 181);
+    padding: 10px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    /* Position the tooltip text */
+    width: 240px;
+    top: 100%;
+    left: 50%;
+    margin-left: -220px;
+    margin-top: 12px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 3px 4px 6px 0px rgba(46,61,73,0.15);
+    font-family: 'Comfortaa';
+    opacity: 0.9;
+    text-align: justify;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.graph-icon:hover .tooltiptext {
+    visibility: visible;
+}
+
 .year-label {
   position: absolute;
   color: rgb(151, 181, 181);
 }
 
 .tooltip {
-  position: absolute;
+  /*position: absolute;*/
   z-index: 1001;
   text-align: center;
   width: 240px;

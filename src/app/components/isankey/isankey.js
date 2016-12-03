@@ -84,7 +84,7 @@
           .attr("d", path)
           .style("stroke", function (d) {
             if (colors[d.source.name] === undefined) {
-              return "rgb(251, 144, 51)";
+              return "rgb(151, 181, 181)";
             }
             return colors[d.source.name];
           })
@@ -111,7 +111,7 @@
           .attr("width", 0)
           .style("fill", function(d){
             if (colors[d.name] === undefined) {
-              return "rgb(251, 144, 51)";
+              return "rgb(151, 181, 181)";
             }
             return colors[d.name];
           });
@@ -120,12 +120,35 @@
           .duration(2000)
           .attr("width", graph.nodeWidth());
 
-        link.on("mouseover", function(d){
+        link.on("mouseover", function (d) {
+            var src = d.source.name.toLowerCase();
+            var trg = d.target.name.toLowerCase();
+            var str = "";
+            if (src.substring(0, 4) === "from") {
+              str = "left " + src;
+            } else {
+              str = "came to " + trg;
+            }
+
             tooltip.transition().duration(500).style("opacity", 0.9);
-            tooltip.html(d["value"] + ",000 people migrated " + "<br/>"
-              + d["source"].name.toLowerCase() + " to " + d["target"].name.toLowerCase())
+            tooltip.html(d["value"] + ",000 people " + str)
               .style("top", (event.pageY-10) - 150 + "px")
               .style("left", (event.pageX+10) - 950 + "px")
+              .style("color", "rgb(151, 181, 181)")
+              .style("height", "35px");
+          })
+          .on("mouseout", function (d) {
+            tooltip.transition().duration(500).style("opacity", 0);
+          });
+
+
+        rect.on("mouseover", function(d){
+            tooltip.transition().duration(500).style("opacity", 0.9);
+            tooltip.html(d.name.toUpperCase())
+              .style("top", (event.pageY-10) - 150 + "px")
+              .style("left", (event.pageX+10) - 950 + "px")
+              .style("color", colors[d.name])
+              .style("height", "35px");
           })
           .on("mouseout", function (d) {
             tooltip.transition().duration(500).style("opacity", 0);
