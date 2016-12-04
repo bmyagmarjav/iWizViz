@@ -39,6 +39,7 @@
 
     var coordinates = [];
     Firebaseio.getPopulation(function(error, data) {
+      // console.log(data);
       if (error) {
         throw error;
       }
@@ -56,6 +57,21 @@
         coordinates.push({
           location: new google.maps.LatLng(val.lat, val.long),
           weight: val[2015]
+        });
+
+        var content =
+          '<div class="marker-content"><b>' +
+            val[2015] + '</b> people currently lives in this state' +
+          '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: content,
+          maxWidth: 350,
+          maxHeight: 200
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
         });
       });
 
