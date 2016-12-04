@@ -174,12 +174,13 @@ Firebaseio.prototype = {
         });
       } else {
         Object.keys(reason).forEach(function(key){
-          console.log(key);
-          Object.values(reason[key][demogr]).forEach(function(val) {
+          console.log(reason[key]);
+          Object.keys(reason[key][demogr]).forEach(function(k) {
             data.push({
               reason: key,
               index: i++,
-              value: val
+              value: reason[key][demogr][k],
+              demogr: k
             });
           });
         });

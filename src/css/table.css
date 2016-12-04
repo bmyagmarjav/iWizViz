@@ -34,6 +34,10 @@ tbody {
 }
 
 @media (min-width: 1901px) {
+  body, html {
+    overflow-y: scroll;
+  }
+
   table {
     margin-top: 3px;
     margin-left: 15%;
@@ -54,10 +58,14 @@ tbody {
 }
 
 @media (min-width: 1200px) and (max-width: 1900px) {
+  body {
+    overflow-y: visible;
+  }
   table {
     margin-top: 6px;
     margin-left: 22%;
     width: 76%;
+    overflow-y: visible;
   }
 }
 

@@ -5,7 +5,7 @@ html, body {
   height: 100%;
   background: rgb(240, 243, 244);
   letter-spacing: 3px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .navbar {

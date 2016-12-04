@@ -30,7 +30,7 @@
     'Other job related reason': "#D0B3DF",
     'Other reasons': "#FAB9C6",
     'Retired': "#7986CB",
-    'To attend/leave college': "#64B5F6",
+    'To attend or leave college': "#64B5F6",
     'To be closer to work or easier commute': "#4FC3F7",
     'To establish own household': "#4DD0E1",
     'To look for work or lost job': "#4DB6AC",
@@ -39,11 +39,6 @@
     'Wanted new or better home - apartment': "#FFF176",
     'Wanted own home': "#FFB74D"
   };
-
-  var colors = ["#F06292", "#e57373", "#BA68C8", "#DCE775",
-    "#70DCDC", "#FFD54F", "#D0B3DF", "#FAB9C6", "#7986CB",
-    "#64B5F6", "#4FC3F7", "#4DD0E1", "#4DB6AC", "#81C784",
-    "#AED581", "#FFF176", "#FFB74D"];
 
   function ibubbleController(Firebaseio, ContainerSrv, $scope) {
     $scope.model = reasons;
@@ -128,16 +123,30 @@
           if (d.depth === 0) {
             return "rgb(240, 243, 244)"; // returns background circle
           }
-          return colors[d.index % 17];
+          return reasons[d.reason];
         })
         .style("stroke", "#fff")
         .style("stroke-width", 4);
 
-      circles.on("mouseover", function(d){
-          tooltip.transition().duration(500).style("opacity", 0.8);
-          tooltip.html(d.value + "000 people")
-          .style("top", (event.pageY-10) - 150 + "px")
-          .style("left", (event.pageX+10) - 400 + "px")
+      circles.on("mouseover", function (d) {
+          tooltip.transition().duration(500).style("opacity", 0.9);
+          if (it[1].name === "Default") {
+            tooltip.html(d.value + "000 people")
+              .style("height", "40px");
+          } else {
+            tooltip.html(d.value + "000 people </br>" + it[1].name + ": " + d.demogr)
+              .style("height", "60px");
+          }
+          if (it[1].name === "Tenure") {
+            tooltip.style("height", "80px");
+          }
+          if (it[1].name === "Marital Status"
+            || it[1].name === "Relationship to House"
+            || it[1].name === "Educational Attainment") {
+            tooltip.style("height", "100px");
+          }
+          tooltip.style("top", (event.pageY-10) - 150 + "px")
+            .style("left", (event.pageX+10) - 400 + "px");
         })
         .on("mouseout", function (d) {
           tooltip.transition().duration(500).style("opacity", 0);
