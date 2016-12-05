@@ -9,7 +9,7 @@
 
   var options = {
      availableOptions: [
-       {id: '1', name: 'Default'},
+       {id: '1', name: 'All'},
        {id: '2', name: 'Age'},
        {id: '3', name: 'Sex'},
        {id: '4', name: 'Tenure'},
@@ -17,7 +17,7 @@
        {id: '6', name: 'Relationship to House'},
        {id: '7', name: 'Educational Attainment'}
      ],
-     selectedOption: {id: '1', name: 'Default'}
+     selectedOption: {id: '1', name: 'All'}
    };
 
   var reasons = {
@@ -130,7 +130,7 @@
 
       circles.on("mouseover", function (d) {
           tooltip.transition().duration(500).style("opacity", 0.9);
-          if (it[1].name === "Default") {
+          if (it[1].name === "All") {
             tooltip.html(d.value + "000 people")
               .style("height", "40px");
           } else {
@@ -140,9 +140,16 @@
           if (it[1].name === "Tenure") {
             tooltip.style("height", "80px");
           }
-          if (it[1].name === "Marital Status"
-            || it[1].name === "Relationship to House"
-            || it[1].name === "Educational Attainment") {
+          if (it[1].name === "Marital Status") {
+            tooltip.style("height", "100px");
+          }
+          if (+it[0] < 2007 && (it[1].name === "Relationship to House"
+          || it[1].name === "Educational Attainment")) {
+            tooltip.html(d.value + "000 people")
+              .style("height", "40px");
+          }
+          if (+it[0] > 2006 && (it[1].name === "Relationship to House"
+          || it[1].name === "Educational Attainment")) {
             tooltip.style("height", "100px");
           }
           tooltip.style("top", (event.pageY-10) - 150 + "px")

@@ -20,7 +20,7 @@
 
   var options = {
     availableOptions: [
-      {id: '1', name: 'Default', type: 'Type1'},
+      {id: '1', name: 'All', type: 'Type1'},
       {id: '2', name: 'Age', type: 'Type1'},
       {id: '3', name: 'Sex', type: 'Type1'},
       {id: '4', name: 'Tenure', type: 'Type1'},
@@ -30,7 +30,7 @@
       {id: '8', name: 'Relationship to House', type: 'Type1'},
       {id: '9', name: 'Educational Attainment', type: 'Type1'}
     ],
-    selectedOption: {id: '1', name: 'Default'}
+    selectedOption: {id: '1', name: 'All'}
   };
 
   function isankeyController(Firebaseio, ContainerSrv, $window, $scope, $rootScope) {
@@ -125,9 +125,9 @@
             var trg = d.target.name.toLowerCase();
             var str = "";
             if (src.substring(0, 4) === "from") {
-              str = "left " + src;
+              str = "left from the " + src.substring(5);
             } else {
-              str = "came to " + trg;
+              str = "came to the " + trg;
             }
 
             tooltip.transition().duration(500).style("opacity", 0.9);
@@ -144,7 +144,14 @@
 
         rect.on("mouseover", function(d){
             tooltip.transition().duration(500).style("opacity", 0.9);
-            tooltip.html(d.name.toUpperCase())
+            var str = "";
+            if (d.name.substring(0, 4) === "From") {
+                str = d.name.substring(5).toUpperCase();
+            } else {
+                str = d.name.toUpperCase();
+            }
+            console.log(d.name.substring(0, 4));
+            tooltip.html(str)
               .style("top", (event.pageY-10) - 150 + "px")
               .style("left", (event.pageX+10) - 950 + "px")
               .style("color", colors[d.name])
@@ -166,7 +173,7 @@
               if (d.target.name.toLowerCase() === " midwest") {
                 mw = "midwest";
               }
-              if (it[1].name !== "Default" &&
+              if (it[1].name !== "All" &&
                 (d.target.name.toLowerCase() === region.toLowerCase() || mw === region.toLowerCase())) {
                 return "#23CF5F";
               }

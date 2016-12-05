@@ -163,7 +163,7 @@ Firebaseio.prototype = {
       var data = [];
       var i = 0;
       var reason = snapshot.val();
-      if (demogr === "Default") {
+      if (demogr === "All") {
         Object.keys(reason).forEach(function(key){
         //   console.log(reason[key]["Total"]);
           data.push({
@@ -287,14 +287,14 @@ function get() {
 }
 
 function produceLinksAndNodes(data, nodes, links, demogr, type) {
-  if (demogr === "Default") {
-    produceDefault(data, nodes, links);
+  if (demogr === "All") {
+    produceAll(data, nodes, links);
   } else {
     produceByDemography(data, nodes, links, demogr, type);
   }
 }
 
-function produceDefault(data, nodes, links) {
+function produceAll(data, nodes, links) {
   Object.keys(data).forEach(function (from) {
     Object.keys(data[from]).forEach(function (to) {
       nodes.push({ "name": from });

@@ -12,7 +12,7 @@
 
     swal({
       title: 'Thank You!',
-      text: 'If you dont see the table body, choose your year!',
+      text: "If you don't see the table body, choose your year!",
       imageUrl: '../../../img/logo.png',
       imageWidth: 100,
       imageHeight: 120,
