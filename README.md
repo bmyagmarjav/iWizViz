@@ -45,6 +45,12 @@ $ npm install -g generator-fountain-angular1
 $ yo fountain-angular1:component --name componentName --dir components/componentName
 ```
 
+## Count how many lines of codes and text
+
+```sh
+$ git ls-files | xargs wc -l
+```
+
 ## Features
 
 * [AngularJS](https://angularjs.org/) - HTML enhanced for web apps!
