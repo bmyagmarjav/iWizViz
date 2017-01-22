@@ -1,0 +1,75 @@
+Table with row headers in column A and column headers in rows 5 through 6.,,,,,,,,,,,,
+"Table 13.  Migration Flows Between Regions, by Sex, Age, Race and Hispanic Origin, Relationship to Householder, Educational Attainment, Marital Status, Nativity, Tenure, and Poverty Status:  2012 to 2013",,,,,,,,,,,,
+(Numbers in thousands.),,,,,,,,,,,,
+(leading dot indicates sub-part),,,,,,,,,,,,
+United States,From Northeast to,,,From Midwest to,,,From South to,,,From West to,,
+, Midwest,South,West,Northeast,South,West,Northeast, Midwest,West,Northeast, Midwest,South
+TOTAL 1+ years,63,213,123,39,478,190,136,310,273,59,153,410
+,,,,,,,,,,,,
+SEX,,,,,,,,,,,,
+.Male,24,100,64,23,233,99,66,167,144,25,82,225
+.Female,39,113,59,16,245,92,71,143,129,34,70,185
+AGE,,,,,,,,,,,,
+.1 to 4 years,4,14,15,3,46,11,6,23,13,1,10,21
+.5 to 9 years,1,19,4,6,31,22,15,22,15,-,7,29
+.10 to 14 years,2,9,3,-,20,10,16,19,11,4,5,20
+.15 to 19 years,3,10,1,1,47,11,12,14,14,-,5,22
+.20 to 24 years,17,30,18,1,57,19,13,43,31,12,27,90
+.25 to 29 years,8,20,28,6,72,46,20,49,56,14,36,60
+.30 to 44 years,16,60,23,5,121,38,35,83,69,12,41,79
+.45 to 64 years,6,39,10,7,60,30,15,44,43,7,17,63
+.65 to 74 years,6,9,18,7,22,2,1,9,2,3,4,22
+.75+ years,-,4,2,3,2,2,4,3,18,6,1,3
+RACE AND HISPANIC ORIGIN,,,,,,,,,,,,
+.White alone,54,159,109,31,343,173,88,259,205,42,130,353
+.Black or African American alone,3,35,1,7,107,3,37,31,18,8,15,33
+.Asian alone,4,15,8,1,19,7,2,12,35,9,6,7
+.All remaining single races and all race combinations/1,1,5,4,-,9,7,9,8,15,-,2,17
+".White alone, not Hispanic or Latino",50,137,97,30,261,125,84,211,175,42,123,297
+.Hispanic or Latino/2,6,29,12,1,83,49,4,52,37,1,7,56
+.White alone or in combination with one or more other races,55,160,113,31,353,178,88,264,217,42,130,366
+.Black or African American alone or in combination with one or more other races,5,38,1,7,111,6,46,34,22,8,16,35
+.Asian alone or in combination with one or more other races,4,16,13,1,19,7,2,14,40,9,6,18
+RELATIONSHIP TO HOUSEHOLDER,,,,,,,,,,,,
+".Householder, spouse present",7,37,30,8,75,18,12,48,54,8,23,68
+.Other family householder,2,19,2,-,30,24,18,11,7,3,9,24
+.Spouse of householder,6,36,30,8,72,19,12,52,54,8,27,69
+.Child of householder,12,58,27,3,152,59,49,81,65,11,34,105
+.Other relative of householder,4,6,-,-,66,9,15,13,27,-,4,31
+.Nonrelative of householder,10,17,14,12,30,30,11,52,25,12,30,60
+.Nonfamily householder,21,40,19,8,53,30,18,52,42,16,24,54
+.Secondary individual in group quarters,-,-,-,-,-,1,-,-,-,-,-,-
+EDUCATIONAL ATTAINMENT,,,,,,,,,,,,
+.Not a high school graduate,4,8,-,3,34,9,4,13,5,3,6,20
+.High school graduate,7,26,20,5,78,18,18,56,48,9,32,44
+.Some college or AA degree,10,17,12,9,69,33,19,61,56,11,37,64
+.Bachelor's degree,8,43,36,6,62,43,20,28,52,8,15,70
+.Prof. or graduate degree,8,37,13,5,35,15,13,31,28,11,10,29
+.Persons age 1-24,27,83,41,10,201,73,62,122,84,17,54,182
+MARITAL STATUS,,,,,,,,,,,,
+".Married, spouse present",13,73,59,16,162,40,25,103,121,16,51,140
+".Married, spouse absent",3,3,3,-,11,1,9,3,8,-,7,6
+.Widowed,1,-,5,2,8,1,4,-,2,3,2,3
+.Divorced,7,17,1,3,45,32,11,37,15,4,10,27
+.Separated,1,10,5,4,14,6,5,15,7,-,3,-
+.Never married,30,69,28,5,141,67,46,88,80,30,59,164
+.Persons age 1-14,7,42,22,9,97,43,37,64,39,5,22,70
+NATIVITY,,,,,,,,,,,,
+ .Native,53,195,103,36,405,170,116,276,254,47,141,359
+ .Foreign born,10,18,20,3,74,20,20,35,19,12,11,51
+  ..Naturalized U.S. citizen,5,4,5,2,21,4,7,12,5,2,5,16
+  ..Not a U.S. citizen,5,15,15,1,53,16,13,23,14,10,6,35
+TENURE,,,,,,,,,,,,
+.In an owner-occupied housing unit,25,66,45,11,181,31,24,127,89,3,63,106
+.In a renter-occupied housing unit,37,145,77,27,290,157,96,183,182,56,87,304
+.In a no cash renter-occupied housing unit,-,3,1,1,7,2,17,-,1,-,3,-
+POVERTY STATUS,,,,,,,,,,,,
+.Below 100% of poverty,10,29,14,13,97,71,25,84,16,12,23,38
+.100% to 149% of poverty,12,16,6,1,36,15,25,44,30,-,13,74
+.150% of poverty and above,41,168,103,25,345,104,87,182,227,46,117,298
+Footnotes:,,,,,,,,,,,,
+"1/  Includes American Indian and Alaska Native alone, Native Hawaiian and Other Pacific Islander alone, and Two or More Races.",,,,,,,,,,,,
+2/  Hispanics or Latinos may be of any race.,,,,,,,,,,,,
+"""-"" Represents zero or rounds to zero.",,,,,,,,,,,,
+"Source: U.S. Census Bureau, Current Population Survey, 2013 Annual Social and Economic Supplement",,,,,,,,,,,,
+Internet Release Date: November 2013,,,,,,,,,,,,

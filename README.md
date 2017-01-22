@@ -18,7 +18,7 @@
 ```sh
 $ sudo npm install -g yo
 $ sudo npm install -g bower
-$ sudo npm install -g generator-fountain-webapp
+$ npm install -g generator-fountain-vue
 $ sudo npm install -g gulp-cli
 ```
 
